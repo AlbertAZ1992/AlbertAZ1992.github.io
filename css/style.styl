@@ -1,17 +1,14 @@
 @import 'nib'
-global-reset()
+
 @import '_base/variable'
-@import '_base/font'
-@import '_base/public'
+@import '_base/utils'
+@import '_base/layout'
+
 @import '_partial/header'
-@import '_partial/index'
 @import '_partial/article'
-@import '_partial/helper'
-@import '_partial/aside'
+@import '_partial/comment'
+@import '_partial/index'
+@import '_partial/archive'
+@import '_partial/sidebar'
 @import '_partial/footer'
-if highlight
-  @import '_base/code'
-if duoshuo
-  @import '_partial/duoshuo'
-if fancybox
-  @import '_partial/gallery'
+@import '_partial/syntax'
