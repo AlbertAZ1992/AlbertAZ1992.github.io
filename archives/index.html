@@ -6,7 +6,7 @@
   <title>归档 | Deacyn</title>
   <meta name="author" content="Deacyn Zhang">
   
-  <meta name="description" content="前端笔记">
+  <meta name="description" content="Web前端学习笔记">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -27,6 +27,18 @@
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 
 <body>
@@ -34,11 +46,11 @@
     <nav id="main-nav">
   <ul class='container'>
     
-      <li><a href="/">主页</a></li>
+      <li><a href="/">Home</a></li>
     
-      <li><a href="/archives">存档</a></li>
+      <li><a href="/archives">Archives</a></li>
     
-      <li><a href="/about">关于</a></li>
+      <li><a href="/about">About</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -52,8 +64,8 @@
     <div class="archive">
 	<article class="post"
 		<header>
-		  <time datetime="2015-02-07T03:58:51.000Z"><a href="/2015/02/07/Hello-post/">2月 7 2015</a></time>
-		  <h1 class="title"><a href="/2015/02/07/Hello-post/">Hello post</a></h1>
+		  <time datetime="2015-02-08T08:31:38.000Z"><a href="/2015/02/08/hello-world/">2月 8 2015</a></time>
+		  <h1 class="title"><a href="/2015/02/08/hello-world/">Hello World</a></h1>
 		  
 
 
@@ -64,9 +76,14 @@
     <div class="archive">
 	<article class="post"
 		<header>
-		  <time datetime="2015-02-06T10:01:24.000Z"><a href="/2015/02/06/hello-world/">2月 6 2015</a></time>
-		  <h1 class="title"><a href="/2015/02/06/hello-world/">Hello World</a></h1>
+		  <time datetime="2015-02-07T03:58:51.000Z"><a href="/2015/02/07/Hello-post/">2月 7 2015</a></time>
+		  <h1 class="title"><a href="/2015/02/07/Hello-post/">Hello post</a></h1>
 		  
+			  <div class="categories">
+			  	<i class="fa fa-folder-open"></i>
+			    <a href="/categories/test/">test</a>
+			  </div>
+			
 
 
 		</header>
@@ -131,7 +148,7 @@ Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="ex
 
     
     <script type="text/javascript">
-      var duoshuoQuery = {short_name:"deacyn"};
+      var duoshuoQuery = {short_name:"your_id"};
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;

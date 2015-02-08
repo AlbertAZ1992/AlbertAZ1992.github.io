@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://deacyn.com/"/>
-  <updated>2015-02-07T09:33:15.400Z</updated>
+  <updated>2015-02-08T10:42:35.569Z</updated>
   <id>http://deacyn.com/</id>
   
   <author>
@@ -15,24 +15,11 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Hello post]]></title>
-    <link href="http://deacyn.com/2015/02/07/Hello-post/"/>
-    <id>http://deacyn.com/2015/02/07/Hello-post/</id>
-    <published>2015-02-07T03:58:51.000Z</published>
-    <updated>2015-02-07T04:02:55.000Z</updated>
-    <content type="html"><![CDATA[]]></content>
-    <summary type="html">
-    <![CDATA[]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Hello World]]></title>
-    <link href="http://deacyn.com/2015/02/06/hello-world/"/>
-    <id>http://deacyn.com/2015/02/06/hello-world/</id>
-    <published>2015-02-06T10:01:24.000Z</published>
-    <updated>2015-02-06T10:01:24.000Z</updated>
+    <link href="http://deacyn.com/2015/02/08/hello-world/"/>
+    <id>http://deacyn.com/2015/02/08/hello-world/</id>
+    <published>2015-02-08T08:31:38.000Z</published>
+    <updated>2015-02-08T08:31:38.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2>
 <h3 id="Create_a_new_post">Create a new post</h3>
@@ -55,6 +42,21 @@
     <summary type="html">
     <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
     </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello post]]></title>
+    <link href="http://deacyn.com/2015/02/07/Hello-post/"/>
+    <id>http://deacyn.com/2015/02/07/Hello-post/</id>
+    <published>2015-02-07T03:58:51.000Z</published>
+    <updated>2015-02-08T06:33:50.000Z</updated>
+    <content type="html"><![CDATA[]]></content>
+    <summary type="html">
+    <![CDATA[]]>
+    </summary>
+    
+      <category term="test" scheme="http://deacyn.com/categories/test/"/>
     
   </entry>
   
