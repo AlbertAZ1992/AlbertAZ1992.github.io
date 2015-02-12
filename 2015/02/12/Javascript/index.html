@@ -91,12 +91,12 @@
     <div class="entry">
       
         <p>javascript初学完一轮，这里需要把能想起来的东西整理一遍。当然javascript涉及的内容巨量，我只能以初学者的视角，描述出知识点的轮廓，但重要的细节也会尽力说明。<br><a id="more"></a></p>
-<h3 id="有关javascript">有关javascript</h3>
+<h2 id="有关javascript"><strong>有关javascript</strong></h2>
 <p>首先它是一门程序语言，解释型语言，javascript名称里虽然包含了java，但实际上它根java是两回事。</p>
 <p>起初大家对javascript的认识主要是用于网页行为表现层，实现各种交互效果。过去，javascript被认为是由浏览器解释运行的客户端脚本语言，因此难以写服务器上的文件、难以从其他服务器的网页上读取信息等等。</p>
 <p>但是现在很多出色的应用、酷炫的效果都源自javascript，开发平台也不再局限于浏览器（毕竟web领域发展太快）。现在的web 开发，在确保用户安全的前提下，javascript几乎可以做到你能想到的任何事情。</p>
 <p>比如<a href="http://javascript.ruanyifeng.com/nodejs/commonjs.html" target="_blank" rel="external">CommonJS规范</a>就是服务器端模块的规范，开发者可以使用CommonJS API编写应用程序，然后这些应用可以运行在不同的JavaScript解释器和不同的主机环境中。</p>
-<h3 id="使用javascript">使用javascript</h3>
+<h2 id="使用javascript"><strong>使用javascript</strong></h2>
 <p>使用javascript需要添加 <code>&lt;script&gt;</code>标签，在html中直接添加，需要像这样：</p>
 <pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
 alert(<span class="string">"what?"</span>);
@@ -105,7 +105,7 @@ alert(<span class="string">"what?"</span>);
 <pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"demo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </code></pre><p>在html5 中，通常type属性也可以不写。 </p>
 <p>因为<code>&lt;script&gt;</code>中代码加载后就会立即执行，因此它放置的位置会影响整体页面的性能，按惯例会放在页面底部，<code>&lt;/body&gt;</code>标签之前（当然这里先不考虑async和defer异步加载的问题）。</p>
-<h3 id="javascript语法重点">javascript语法重点</h3>
+<h2 id="javascript语法重点"><strong>javascript语法重点</strong></h2>
 <p> 首先javascript区分大小写，比如<code>woca</code>和<code>Woca</code>是不同的变量</p>
 <p> <strong>变量</strong></p>
 <p>说到变量，javascript中变量是一种 <em>松散类型</em> 的变量，用关键字<code>var</code>声明即可，你不用去关心变量类型是否匹配。此外如果声明变量不使用<code>var</code>，变量会被当作额外的全局变量，这种还是要尽量省略。</p>
@@ -139,7 +139,7 @@ alert(<span class="string">"what?"</span>);
         alert(<span class="string">"Hello!"</span> + <span class="keyword">this</span>.name);
     }
 };
-</code></pre><h3 id="实现功能">实现功能</h3>
+</code></pre><h2 id="实现功能"><strong>实现功能</strong></h2>
 <p>说一下如何用javascript实现想要的功能。<br>通常需要实现的功能都是事件驱动的，称为Event Driven，也就是当某些事件发生后会出现功能。<br>以一个点击事件为例，点击后会消失：</p>
 <p>那么实现该事件驱动功能主要流程分三部分，如下：</p>
 <pre><code>1.选取相关元素，获得其引用
@@ -154,11 +154,11 @@ demo.onclick = <span class="function"><span class="keyword">function</span><span
     <span class="keyword">this</span>.style.display = <span class="string">"none"</span>;
 };
 </code></pre><p>当然这只是一个很简单的功能，实现起来不复杂。但是遇到相对复杂的工作，特别是涉及到浏览器兼容性问题时，用原生javascript处理起来就很是麻烦，就需要jQuery这类javascript库，利用简化方便的高层次接口。</p>
-<h3 id="浏览器对象模型（BOM）">浏览器对象模型（BOM）</h3>
+<h2 id="浏览器对象模型（BOM）"><strong>浏览器对象模型（BOM）</strong></h2>
 <p>BOM,就是Browser Object Model，它提供了很多Object用于访问浏览器的功能。BOM尚无正式标准。由于现代浏览器已经几乎实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。</p>
 <p>其中顶层对象是window，所有浏览器都支持 window 对象。它表示浏览器窗口。<br>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</p>
 <p>全局变量是 window 对象的属性；全局函数是 window 对象的方法；都是定义在window对象上。</p>
-<h3 id="文档对象模型（DOM）">文档对象模型（DOM）</h3>
+<h2 id="文档对象模型（DOM）"><strong>文档对象模型（DOM）</strong></h2>
 <p>DOM，就是Document Object Model。</p>
 <p>DOM已经是W3C的一个推荐标准，为基本的文档结构和查询提供接口，本质上是独立于javascript的，不过在javascript中可以，也经常需要使用。</p>
 <p>DOM实际上是以树形结构表示HTML和XML文档，定义了遍历这个树和检查、修改树的节点的方法和属性。比如下面这段：</p>
@@ -172,7 +172,7 @@ demo.onclick = <span class="function"><span class="keyword">function</span><span
     <span class="string">|__element h2.title__text Title</span>
     <span class="string">|</span>
     <span class="string">|__element p.content__text Content</span>
-</code></pre><h3 id="Ajax">Ajax</h3>
+</code></pre><h2 id="Ajax"><strong>Ajax</strong></h2>
 <p>Ajax, Asynchronous JavaScript and XML的缩写。</p>
 <p>Ajax的技术核心是XMLHttpRequest对象，它使得javascript可以在<strong><em>任何时候和服务器进行通讯而不必刷新整个页面</em></strong>。一个简单的Ajax体验就是你在搜索引擎print的时候，会有自动匹配提示。</p>
 <p>比如服务器端的一个demo.php文件：</p>
@@ -189,7 +189,7 @@ demo.onclick = <span class="function"><span class="keyword">function</span><span
 });
 myRequest.send();
 </code></pre><p>这样从服务器获取demo.php返回的文本信息并写入到id是box的元素内，关键是不用对页面进行刷新。</p>
-<h3 id="进阶javascript">进阶javascript</h3>
+<h2 id="进阶javascript"><strong>进阶javascript</strong></h2>
 <p>原生javascript虽然能实现很多的功能，但只是初级的写法难以完成更复杂庞大的web开发。javascript的进阶的时候需要考虑的就是编写可维护易复用的javascript。就Object而言,像下面这样：</p>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(first, last)</span> </span>{
     <span class="keyword">this</span>.first = first;
@@ -209,7 +209,7 @@ Person.prototype.toString = <span class="function"><span class="keyword">functio
 <span class="built_in">document</span>.write(simon.fullName());
 </code></pre><p>ECMAScript为object类型定义了一个内部属性prototype。在对象的属性解析过程中，会需要用到<strong><em>这个内部属性所引用的对象链</em></strong>，即<strong><em>原型链</em></strong>，原型链终止于链中原型为null的对象。</p>
 <p>这种组合继承的运用,有利于模块化和独立复用。其实也就涉及到设计模式的问题，设计模式是针对程序设计语言中的各类问题的解决方案，对于jQuery这类javascript库的源码，至少需要先明白设计模式。</p>
-<h3 id="总结">总结</h3>
+<h2 id="总结"><strong>总结</strong></h2>
 <p>以上是目前我对javascript的理解。有关javascript的其他技术细节，还需要继续学习。。就到这里</p>
 
       
