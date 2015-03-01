@@ -4,7 +4,7 @@
   <subtitle><![CDATA[China, Shanghai]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://deacyn.com/"/>
-  <updated>2015-03-01T13:10:30.738Z</updated>
+  <updated>2015-03-01T13:13:16.865Z</updated>
   <id>http://deacyn.com/</id>
   
   <author>
@@ -18,9 +18,9 @@
     <title><![CDATA[]]></title>
     <link href="http://deacyn.com/2015/03/01/%E6%9C%89%E5%85%B3git/"/>
     <id>http://deacyn.com/2015/03/01/有关git/</id>
-    <published>2015-03-01T13:08:05.000Z</published>
-    <updated>2015-03-01T13:08:05.000Z</updated>
-    <content type="html"><![CDATA[<p>title: 有关git<br>tags:</p>
+    <published>2015-03-01T13:13:09.000Z</published>
+    <updated>2015-03-01T13:13:09.000Z</updated>
+    <content type="html"><![CDATA[<p>title: 有关Git<br>tags:</p>
 <ul>
 <li>git</li>
 <li>note<br>date: 2015-03-01 18:45:38<br>categories:项目笔记</li>
@@ -56,7 +56,7 @@ git <span class="operator"><span class="keyword">merge</span> origin/<span class
 </code></pre><p>到这差不多了。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: 有关git<br>tags:</p>
+    <![CDATA[<p>title: 有关Git<br>tags:</p>
 <ul>
 <li>git</li>
 <li>note<br>date: 2015-03-01 18:45:38<br>categories:项目笔记</li>
