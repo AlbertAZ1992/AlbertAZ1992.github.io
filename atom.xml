@@ -4,7 +4,7 @@
   <subtitle><![CDATA[China, Shanghai]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://deacyn.com/"/>
-  <updated>2015-03-01T13:13:16.865Z</updated>
+  <updated>2015-03-01T13:14:52.341Z</updated>
   <id>http://deacyn.com/</id>
   
   <author>
@@ -15,18 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[]]></title>
+    <title><![CDATA[有关Git]]></title>
     <link href="http://deacyn.com/2015/03/01/%E6%9C%89%E5%85%B3git/"/>
     <id>http://deacyn.com/2015/03/01/有关git/</id>
-    <published>2015-03-01T13:13:09.000Z</published>
-    <updated>2015-03-01T13:13:09.000Z</updated>
-    <content type="html"><![CDATA[<p>title: 有关Git<br>tags:</p>
-<ul>
-<li>git</li>
-<li>note<br>date: 2015-03-01 18:45:38<br>categories:项目笔记</li>
-</ul>
-<hr>
-<p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br><a id="more"></a></p>
+    <published>2015-03-01T10:45:38.000Z</published>
+    <updated>2015-03-01T13:14:12.000Z</updated>
+    <content type="html"><![CDATA[<p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br><a id="more"></a></p>
 <p>下面主要记录最常用的一些命令：</p>
 <h2 id="Step_by_Step"><strong>Step by Step</strong></h2>
 <p>1.首先需要在github上创建一个新的<code>repository</code> ，也就是文件仓库。文件仓库的名字跟本地文件夹同名，这里把它命名为<code>myFirstRepo</code></p>
@@ -56,15 +50,15 @@ git <span class="operator"><span class="keyword">merge</span> origin/<span class
 </code></pre><p>到这差不多了。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: 有关Git<br>tags:</p>
-<ul>
-<li>git</li>
-<li>note<br>date: 2015-03-01 18:45:38<br>categories:项目笔记</li>
-</ul>
-<hr>
-<p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br>]]>
+    <![CDATA[<p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br>]]>
     
     </summary>
+    
+      <category term="git" scheme="http://deacyn.com/tags/git/"/>
+    
+      <category term="note" scheme="http://deacyn.com/tags/note/"/>
+    
+      <category term="项目笔记" scheme="http://deacyn.com/categories/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
