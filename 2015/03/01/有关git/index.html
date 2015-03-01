@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Sketch | Deacyn</title>
+  <title>Deacyn</title>
   <meta name="author" content="Deacyn Zhang">
   
   <meta name="description" content="爱好漫画与足球并学习web前端">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Sketch"/>
+  
   <meta property="og:site_name" content="Deacyn"/>
 
   
@@ -48,15 +48,15 @@
 </nav>
   </header>
   <div id="content" class="container">
-    <article class="photo">
+    <article class="post">
  
   <div class="post-content">
     <header>
       
-      <time datetime="2015-02-14T04:28:14.000Z"><a href="/2015/02/14/Sketch/">周六, 2月 14 2015, 12:28:14 中午</a></time>
+      <time datetime="2015-03-01T13:08:05.000Z"><a href="/2015/03/01/有关git/">周日, 3月 1 2015, 9:08:05 晚上</a></time>
 
   
-    <h1 class="title">Sketch</h1>
+    <h1 class="title"></h1>
   
 
 
@@ -66,32 +66,48 @@
     </header>
     <div class="entry">
       
-        
+        <p>title: 有关git<br>tags:</p>
+<ul>
+<li>git</li>
+<li>note<br>date: 2015-03-01 18:45:38<br>categories:项目笔记</li>
+</ul>
+<hr>
+<p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br><a id="more"></a></p>
+<p>下面主要记录最常用的一些命令：</p>
+<h2 id="Step_by_Step"><strong>Step by Step</strong></h2>
+<p>1.首先需要在github上创建一个新的<code>repository</code> ，也就是文件仓库。文件仓库的名字跟本地文件夹同名，这里把它命名为<code>myFirstRepo</code></p>
+<p>2.需要<code>cd</code>进入本地<code>myFirstRepo</code>文件夹，用<code>git init</code>初始化文件仓库</p>
+<p>3.添加远程仓库的地址</p>
+<pre><code>git remote <span class="built_in">add</span> origin http<span class="variable">s:</span>//github.<span class="keyword">com</span>/Deacyn/myFirstRepo.git
+</code></pre><p>并更新，上传本地当前分支代码到github项目默认的master分支上</p>
+<pre><code>git <span class="keyword">push</span> -u origin master
+</code></pre><p>第一次<code>push</code>的时候添加了<code>-u</code>参数，表示设置一条新的upstream。后续的上传更新只需要：</p>
+<pre><code>git <span class="keyword">push</span> origin master
+</code></pre><p>注意这里上传的都是当<strong>前分</strong>支代码，如果要上传本地所有分支代码，则直接<code>git push</code>就好了。</p>
+<h2 id="注意点"><strong>注意点</strong></h2>
+<p>1.在其他平台，只需要使用<code>git clone &lt;address&gt;</code>，就可以将源文件复制到本地.</p>
+<p>2.很多时候并不是所有文件都要上传，因此可以在项目文件夹中添加.gitignore文件，在其中设置忽略的目录，比如<code>node_modules/</code>、<code>public/</code>和<code>.deploy/</code>。这样<code>push</code>的时候不会关注上述目录。</p>
+<p>3.随后进入到项目文件夹使用<code>git add .</code>将当前<strong>所有</strong>文件提交到缓存区。</p>
+<p>4.接着<code>git commit -m &quot;version&quot;</code> 将文件提交到本地仓库</p>
+<p>5.最后是<code>git push origin master</code>,将本地仓库的改动推送到在线仓库</p>
+<p>6.当远程仓库有更新时，使用<code>git pull</code>进行同步</p>
+<pre><code><span class="input"><span class="prompt">git pull &lt;远程主机名&gt;</span> &lt;远程分支名&gt;<span class="symbol">:&lt;</span>本地分支名&gt;</span>
+</code></pre><p>比如，取回origin主机的next分支，与本地的master分支合并，需要写成下面这样：</p>
+<pre><code>git pull origin nex<span class="variable">t:master</span>
+</code></pre><p>如果远程分支是与<strong><em>当前分支</em></strong>合并，则冒号后面的部分可以省略，像这样：</p>
+<pre><code>git pull origin <span class="keyword">next</span>
+</code></pre><p>这等同于先做git fetch，再做git merge，像下面这样：</p>
+<pre><code>git fetch origin
+git <span class="operator"><span class="keyword">merge</span> origin/<span class="keyword">next</span></span>
+</code></pre><p>到这差不多了。</p>
+
       
     </div>
     
       <div class="gallery">
   <div class="photoset">
     
-      
-        <img src="/img/IMG_0030.PNG">
-      
-        <img src="/img/IMG_0022.PNG">
-      
-        <img src="/img/IMG_0024.PNG">
-      
-        <img src="/img/IMG_0025.PNG">
-      
-        <img src="/img/IMG_0026.PNG">
-      
-        <img src="/img/IMG_0027.PNG">
-      
-        <img src="/img/IMG_0028.PNG">
-      
-        <img src="/img/IMG_0029.PNG">
-      
-        <img src="/img/IMG_0031.PNG">
-      
+      <img src="">
     
   </div>
   <div class="control">
@@ -123,10 +139,8 @@
           <div class="clearfix"></div>
           <nav id="pagination">
   
-    <a href="/2015/03/01/有关git/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
   
-  
-    <a href="/2015/02/12/Javascript/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+    <a href="/2015/02/14/Sketch/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
@@ -144,7 +158,7 @@
 
   
       <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2015/02/14/Sketch/"></div>
+<div class="ds-thread" data-thread-key="/2015/03/01/有关git/"></div>
 <!-- Duoshuo Comment END -->
   
 </section>
