@@ -4,7 +4,7 @@
   <subtitle><![CDATA[China, Shanghai]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://deacyn.com/"/>
-  <updated>2015-03-17T05:07:09.419Z</updated>
+  <updated>2015-03-31T15:58:00.972Z</updated>
   <id>http://deacyn.com/</id>
   
   <author>
@@ -13,6 +13,169 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[JavaScript面向对象笔记]]></title>
+    <link href="http://deacyn.com/2015/03/31/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%AC%94%E8%AE%B0/"/>
+    <id>http://deacyn.com/2015/03/31/JavaScript面向对象笔记/</id>
+    <published>2015-03-31T13:52:04.000Z</published>
+    <updated>2015-03-31T15:57:43.000Z</updated>
+    <content type="html"><![CDATA[<p>最近一直在刷犀牛书，感觉脑子里的知识还是太乱太零散，需要总结梳理一下。现在首先从面向对象编程开始。<br><a id="more"></a></p>
+<h2 id="有关继承"><strong>有关继承</strong></h2>
+<p>JavaScript中的所有数据类型都可以归结为对象，因此为了将所有对象联系起来，就需要继承机制。<br>首先JavaScript通过<code>new</code>，从原型对象生成实例对象。但是，JavaScript（一下简称JS）又没有引入<strong>“类”</strong>，因此JS的<code>new</code>调用的不是类，而是<strong>“构造函数”</strong>。</p>
+<p>比如像这样,构建一个猫对象的原型：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name)</span></span>{
+    <span class="keyword">this</span>.name=name;
+}
+</code></pre><p>对此构造函数使用<code>new</code>生成实例：</p>
+<pre><code><span class="keyword">var</span> catA=<span class="keyword">new</span> Cat(<span class="string">'小黑'</span>);
+alert(catA.name);<span class="comment">//小黑</span>
+</code></pre><p>然而，通过<code>this</code>创建的属性会被实例对象独立继承拷贝，相对独立，并非共有，也会浪费内存。因此JS还提供了<strong>prototype</strong>模式，用来创建共有属性。每个构造函数都有一个<code>prototype</code>属性，指向一个对象该对象的所有属性和方法，都会被构造函数的实例继承。</p>
+<p>这样一来，实例对象一旦创建，会自动引用<code>prototype</code>对象的属性和方法。共享属性和方法放在<code>prototype</code>对象中，是引用的；不共享的属性和方法放在构造函数内部，是本地的：</p>
+<pre><code>Cat.prototype.<span class="built_in">type</span>=<span class="string">'猫科'</span>;
+Cat.prototype.eat=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{alert(<span class="string">"吃鱼"</span>);};
+</code></pre><p>生成实例则是这样：</p>
+<pre><code>alert(catA.<span class="keyword">type</span>);<span class="comment">//猫科</span>
+catA.eat();<span class="comment">//吃鱼</span>
+</code></pre><p>如果再实例话一个对象，起共有属性和方法均指向<code>prototype</code>对象，因此提高了运行效率：</p>
+<pre><code><span class="keyword">var</span> catB=<span class="keyword">new</span> Cat(<span class="string">'小白'</span>);
+alert(catA.eat==catB.eat);<span class="comment">//True</span>
+</code></pre><p>还有一些验证继承模式的方法：</p>
+<p>1.实例会自动含有一个<code>constructor</code>属性，指向它的构造函数：</p>
+<pre><code>alert(catA.<span class="keyword">constructor</span>==Cat);<span class="comment">//True</span>
+</code></pre><p>2.通过<code>instanceof</code>运算符可以验证<strong>原型对象</strong>和<strong>实例对象</strong>的关系：</p>
+<pre><code>alert(catA <span class="keyword">instanceof</span> Cat);<span class="comment">//True</span>
+</code></pre><p>3.通过<code>isPrototypeOf()</code>判断<strong>原型对象</strong>和<strong>实例对象</strong>的关系：</p>
+<pre><code><span class="function">alert</span>(Cat<span class="class">.prototype</span><span class="class">.isPrototypeOf</span>(catA));<span class="comment">//True</span>
+</code></pre><p>4.通过<code>hasOwnProperty()</code>判断某一<strong>属性</strong>是来自本地还是继承引用：</p>
+<pre><code>alert(catA.hasOwnProperty(<span class="string">"name"</span>));<span class="comment">//True</span>
+alert(catA.hasOwnProperty(<span class="string">"type"</span>));<span class="comment">//False</span>
+</code></pre><p>5.通过<code>in</code>运算符判断某个<strong>实例</strong>是否含有某个<strong>属性</strong>（无论本地还是引用）：</p>
+<pre><code>alert(<span class="string">"name"</span> <span class="keyword">in</span> catA);<span class="comment">//True</span>
+alert(<span class="string">"type"</span> <span class="keyword">in</span> catA);<span class="comment">//True</span>
+</code></pre><h2 id="有关构造函数的继承"><strong>有关构造函数的继承</strong></h2>
+<p><strong>构造函数</strong>的继承，其实就是生成一个<strong>继承了多个对象</strong>的<strong>实例</strong></p>
+<p>像下面这样，有两个构造函数，需要实现<code>Cat</code>继承<code>Animal</code>：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name,color)</span></span>{
+    <span class="keyword">this</span>.name=name;
+    <span class="keyword">this</span>.color=color;
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.type=<span class="string">"动物"</span>;
+}
+</code></pre><p>有以下方法：</p>
+<p>1.构造函数绑定。使用<code>call</code>和<code>apply</code>把父对象构造函数绑定在自对象上：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Cat</span><span class="params">(name,color)</span></span>{
+    Animal.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);
+    <span class="keyword">this</span>.name=name;
+    <span class="keyword">this</span>.color=color;
+}
+<span class="keyword">var</span> catA=<span class="keyword">new</span> Cat(<span class="string">"小黑"</span>,<span class="string">"黑色"</span>);
+alert(catA.type);<span class="comment">//动物</span>
+</code></pre><p>2.prototype模式。把子对象的<code>prototype</code>属性指向<strong>父对象的实例</strong>：</p>
+<pre><code><span class="attribute">Cat.prototype </span>=<span class="string"> new Animal();</span>
+</code></pre><p>这样<code>prototype</code>对象原来的值被完全删除，包括指向其构造函数的<code>constructor</code>属性，并赋予了一个新的值。</p>
+<p>因此需要重新规定其构造函数的指向：</p>
+<pre><code><span class="constant">Cat.prototype.constructor</span>=Cat;<span class="comment">//</span>
+</code></pre><p>这样之后：</p>
+<pre><code><span class="keyword">var</span> catA=<span class="keyword">new</span> Cat(<span class="string">"小黑"</span>,<span class="string">"黑色"</span>);
+alert(catA.<span class="keyword">type</span>);<span class="comment">//动物</span>
+</code></pre><p>3.直接继承父对象的<code>prototype</code>。可以让Cat跳过 Animal，直接继承Animal.prototype。<br>先设置父对象的<code>prototype</code>：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">()</span></span>{ }
+Animal.prototype.<span class="built_in">type</span> = <span class="string">"动物"</span>;
+</code></pre><p>再把Cat的<code>prototype</code>指向Animal的<code>prototype</code>，当然因为修改了<code>prototype</code>,构造函数也要改：</p>
+<pre><code>Cat.<span class="keyword">prototype</span> = Animal.<span class="keyword">prototype</span>;
+Cat.<span class="keyword">prototype</span>.constructor = Cat;
+</code></pre><p>这样做的结果是不错，但是因为把父对象和子对象的原型关联了，任何对<code>Cat.prototype</code>的修改都会反映到<code>Animal.prototype</code>，其实<code>Animal.prototype</code>对象的<code>constructor</code>属性也已经被修改成<code>Cat</code>了。</p>
+<p>因此最好的方法是利用空对象作为中介：</p>
+<pre><code><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span><span class="params">()</span><span class="comment">{}</span>;</span>
+F.prototype = Animal.prototype;
+Cat.prototype = <span class="keyword">new</span> F();
+Cat.prototype.<span class="keyword">constructor</span> = Cat;
+</code></pre><p>现将<strong>空对象</strong>的<code>prototype</code>指向<strong>父对象</strong>的<code>prototype</code>，再把<strong>子对象</strong>的<code>prototype</code>属性指向<strong>空对象的实例</strong>，这其实是上面两种方法的结合。</p>
+<p>4.prototype模式的封装函数，这是更有可用性的方法：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">extend</span><span class="params">(Child, Parent)</span> </span>{
+    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{};
+    F.prototype = <span class="keyword">Parent</span>.prototype;
+    Child.prototype = <span class="keyword">new</span> F();
+    Child.prototype.constructor = Child;
+}
+</code></pre><p>调用的时候像这样：</p>
+<pre><code>extend(Cat,Animal);
+<span class="keyword">var</span> catA = <span class="keyword">new</span> Cat(<span class="string">"小黑"</span>,<span class="string">"黑色"</span>);
+alert(catA.<span class="keyword">type</span>); <span class="comment">// 动物</span>
+</code></pre><p>5.纯粹拷贝方法，把父对象的所有属性和方法拷贝进子对象：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">extend</span><span class="params">(Child, Parent)</span> </span>{
+    <span class="keyword">var</span> p = Parent.prototype;
+    <span class="keyword">var</span> c = Child.prototype;
+    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) {
+        c[i] = p[i];
+    }
+    c.uber = p;<span class="comment">//这是为了方便子对象直接调用父对象的prototype属性</span>
+}
+</code></pre><h2 id="有关非构造函数的继承"><strong>有关非构造函数的继承</strong></h2>
+<p>所谓非构造函数，就是普通对象,像下面这样，有两个普通对象，需要实现<code>Cat</code>继承<code>Animal</code>：</p>
+<pre><code><span class="keyword">var</span> Cat={
+    name:<span class="string">"猫"</span>    
+}
+<span class="keyword">var</span> Animal={
+    <span class="keyword">type</span>:<span class="string">"动物"</span>
+}
+</code></pre><p>有以下方法：</p>
+<p>1.使用object()函数。object()函数就是把<strong>子对象</strong>的<code>prototype</code>属性指向<strong>父对象</strong>，使子对象与父对象连在一起:</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">object</span><span class="params">(o)</span> </span>{
+    <span class="function"><span class="keyword">function</span> <span class="title">F</span><span class="params">()</span> </span>{}
+    F.prototype = o;
+    <span class="keyword">return</span> <span class="keyword">new</span> F();
+}
+</code></pre><p>因此先在父对象的基础上生成子对象：</p>
+<pre><code><span class="keyword">var</span> Cat = <span class="keyword">object</span>(Animal);
+</code></pre><p>子对象随后继承了父对象的属性：</p>
+<pre><code>alert(Cat.<span class="keyword">type</span>); <span class="comment">//动物</span>
+</code></pre><p>2.浅拷贝。把父对象的属性全部拷贝给子对象，实现继承：</p>
+<pre><code>function extendCopy(p) {
+    <span class="keyword">var</span> <span class="built_in">c</span> = {};
+    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) {
+        <span class="built_in">c</span>[i] = p[i];
+    }
+    <span class="built_in">c</span>.uber = p;
+    <span class="keyword">return</span> <span class="built_in">c</span>;
+}
+</code></pre><p>调用的时候像这样：</p>
+<pre><code><span class="keyword">var</span> Cat = extendCopy(Animal);
+alert(Cat.<span class="keyword">type</span>); <span class="comment">// 动物</span>
+</code></pre><p><strong>浅拷贝存在一个问题：</strong><br>如果父对象的属性等于数组或另一个对象，那么子对象获得的只是一个内存地址引用，而不是真正拷贝，因此存在父对象可能被篡改。</p>
+<p>3.深拷贝。用来完成包括数组和对象的拷贝。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span><span class="params">(p,c)</span></span>{
+    <span class="keyword">var</span> c||{};
+    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> p){
+        <span class="keyword">if</span>(<span class="keyword">typeof</span> p[i]===<span class="string">'object'</span>){<span class="comment">//判断父对象的属性是否为对象</span>
+            c[i]=(p[i].contructor===<span class="built_in">Array</span>)?[]:{};<span class="comment">//或者数组</span>
+            deepCopy(p[i],c[i]);<span class="comment">//递归调用，拷贝数组对象内部属性</span>
+        }
+        <span class="keyword">else</span>{
+            c[i]=p[i];
+        }
+    }
+    <span class="keyword">return</span> c;
+}
+</code></pre><p>调用的时候依然这样：</p>
+<pre><code><span class="keyword">var</span> Cat = deepCopy(Animal);
+alert(Cat.<span class="keyword">type</span>); <span class="comment">// 动物</span>
+</code></pre><p>先到这里～～</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近一直在刷犀牛书，感觉脑子里的知识还是太乱太零散，需要总结梳理一下。现在首先从面向对象编程开始。<br>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://deacyn.com/tags/javascript/"/>
+    
+      <category term="note" scheme="http://deacyn.com/tags/note/"/>
+    
+      <category term="前端笔记" scheme="http://deacyn.com/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[有关Git]]></title>
