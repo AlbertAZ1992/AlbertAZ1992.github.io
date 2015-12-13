@@ -12,7 +12,7 @@ body {
     transition: all 0.3s ease-out;
     outline: none;
     display: inline-block;
-    padding: 1rem 0;
+    padding: 1rem .2rem;
     -webkit-border-radius: 0.3rem;
     -moz-border-radius: 0.3rem;
     -ms-border-radius: 0.3rem;
