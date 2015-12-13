@@ -138,7 +138,8 @@ html {
      border-bottom-left-radius: 0;
 }
 #panel .panel-heading{
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
     background: #F3F3F3;
 }
 #panel .panel-heading span{
@@ -256,8 +257,8 @@ html {
     }
     #panel .panel-heading,
     #panel thead th{
-        font-weight: 300;
-        font-size: 1rem;
+        font-weight: 500;
+        font-size: 1.4rem;
     }
     #panel {
         margin: 1rem;
