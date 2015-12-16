@@ -645,6 +645,9 @@ pre {
 .pisces-footer a {
   color: #595959;
 }
+#comment {
+  margin: 8rem 2rem 0 2rem;
+}
 @media screen and (max-width: 767px) {
   .pisces-navbar.post .navbar-nav {
     display: none;

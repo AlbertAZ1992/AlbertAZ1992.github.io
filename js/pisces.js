@@ -24,17 +24,13 @@ require([],function(){
         $(this).addClass('tag-color-'+percent);
     });
 
-
     if(piscesConfig.duoshuoEnable == true){
-        var duoshuoQuery = {short_name:piscesConfig.duoshuoShortname};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0]
-             || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
     }
     if(piscesConfig.baiduTongjiEnable == true){
         var _hmt = _hmt || [];
