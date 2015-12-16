@@ -26,14 +26,15 @@ require([],function(){
 
 
     if(piscesConfig.duoshuoEnable == true){
-        var duoshuoQuery = piscesConfig.duoshuoShortname;
-        (function(){
-          var dsq = document.createElement('script');
-          dsq.type = 'text/javascript';
-          dsq.async = true;
-          dsq.src = '//' + duoshuoQuery + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
+        var duoshuoQuery = {short_name:piscesConfig.duoshuoShortname};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
     }
     if(piscesConfig.baiduTongjiEnable == true){
         var _hmt = _hmt || [];

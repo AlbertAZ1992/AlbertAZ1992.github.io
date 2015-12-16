@@ -635,8 +635,20 @@ pre {
   color: #ffffff;
   background: #3dd179;
 }
+.pisces-footer {
+  margin: 4rem 0;
+  width: 100%;
+  text-align: center;
+  font-family: "PingFang SC", "Hiragino Sans GB", 'Helvetica Neue', "Microsoft YaHei", "Source Han Sans SC", "Input", Arial, sans-serif;
+  font-weight: 100;
+}
+.pisces-footer a {
+  color: #595959;
+}
 @media screen and (max-width: 767px) {
-  .pisces-navbar.post,
+  .pisces-navbar.post .navbar-nav {
+    display: none;
+  }
   .pisces-navbar.index {
     display: none;
   }
@@ -654,10 +666,6 @@ pre {
   .pisces-article-list .pisces-article-item.photo .info-wrapper .article-meta .article-tags,
   .pisces-article-list .pisces-article-item.txt .info-wrapper .article-meta .article-tags {
     display: block;
-  }
-  .pisces-article-list .pisces-article-item.photo .info-wrapper .article-meta .article-tags .tag,
-  .pisces-article-list .pisces-article-item.txt .info-wrapper .article-meta .article-tags .tag {
-    margin: 0;
   }
   #pisces_post_header {
     height: 60rem;
