@@ -1,653 +1,383 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Deacyn</title>
-  <meta name="author" content="Deacyn Zhang">
-  
-  <meta name="description" content="爱好漫画与足球并学习web前端">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta property="og:site_name" content="Deacyn"/>
+    <!-- SEO title -->
+    
+    <title>喵呜</title>
 
-  
-    <meta property="og:image" content="undefined"/>
-  
-
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Deacyn" type="application/atom+xml">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+    <!-- SEO meta -->
+    
+    <meta name="author" content="Albert">
+    
+    
+    
+    <link href="favicon.ico" rel="icon">
+    <!-- Icon Fonts -->
+    <!-- <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+ -->
+    <!-- Normalize CSS -->
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssnormalize/cssnormalize-min.css" type="text/css">
 <link rel="stylesheet" href="/css/style.css" type="text/css">
-
-  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e374043b6387919f72d88cc71b87c543";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-
+    <!-- HTML5 Shiv && Respond.js -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-  <header id="header" class='normal_mode'>
-    <nav id="main-nav">
-  <ul class='container'>
+    <!-- Tags layout-->
     
-      <li><a href="/">首页</a></li>
-    
-      <li><a href="/archives">归档</a></li>
-    
-      <li><a href="/demos">项目</a></li>
-    
-      <li><a href="/about">关于</a></li>
-    
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-  </header>
-  <div id="content" class="container">
-    <div id="cover">
-	<div id="profile" alt="/img/img-bg.jpg">
-		<a href="/">
-			<div class="logo">
-				<img src="/logo.png" alt="Profile Picture">
-			</div>
-			<div id="title">Deacyn</div>
-			
-		</a>
-
-		
-			<div id="subtitle">China, Shanghai</div>
-		
-
-		<a href="/" title="Deacyn F2E_Student">
-			<div id="website">deacyn.com</div>		
-		</a>
-	
-		 <ul class="my-socials">
-  
-    
-    <li>
-      <a href="https://github.com/Deacyn" class="github" target="_blank" title="Find Me on Github">
-        <i class="fa fa-github"></i>
-      </a>
-    </li>
-    
-
-    
-
-    
-
-  
-    
-
-    
-    <li>
-      <a href="http://weibo.com/deacynzhang" class="weibo" target="_blank" title="Contact Me with Weibo">
-        <i class="fa fa-weibo"></i>
-      </a>
-    </li>
-    
-
-    
-
-  
-    
-
-    
-
-    
-    <li>
-      <a href="http://twitter.com/DeacynZhang" class="twitter" target="_blank" title="Follow Me on Twitter">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    
-
-  
- 
- 
- <li>
-   	<a href="mailto:1379489640@qq.com" class="email" target="_blank" title="Email Me">
-  		<i class="fa fa-envelope"></i>
-  	</a>
- </li>
- 
-</ul>
-
-
-	</div>
-</div>
-
-
-  <article class="post">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-03-31T13:52:04.000Z"><a href="/2015/03/31/JavaScript面向对象笔记/">周二, 3月 31 2015, 9:52:04 晚上</a></time>
-
-  
-    <h1 class="title"><a href="/2015/03/31/JavaScript面向对象笔记/">JavaScript面向对象笔记</a></h1>
-  
-
-
-  
-  <div class="categories">
-  	<i class="fa fa-folder-open"></i>
-    <a href="/categories/前端笔记/">前端笔记</a>
-  </div>
-
-
-  
-  <div class="tags">
-  	<i class="fa fa-tag"></i>
-    <a href="/tags/javascript/">javascript</a>, <a href="/tags/note/">note</a>
-  </div>
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p>最近一直在刷犀牛书，感觉脑子里的知识还是太乱太零散，需要总结梳理一下。现在首先从面向对象编程开始。<br>
-      
+        <!-- Nav -->
+<nav class="navbar navbar-fixed-top pisces-navbar JS_main_nav normal-mode index">
+    <div class="container-fluid">
+        <!-- Logo  -->
+        <a class="navbar-brand" href="http://deacyn.com">喵呜</a>
+        <!-- Links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li>
+                <a href="/">首页</a>
+            </li>
+        
+            <li>
+                <a href="">订阅</a>
+            </li>
+        
+            <li>
+                <a href="/about">关于</a>
+            </li>
+        
+            <li>
+                <a href="/tags">标签</a>
+            </li>
+        
+            <li>
+                <a href="/categories">分类</a>
+            </li>
+        
+        </ul>
     </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/03/31/JavaScript面向对象笔记/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/03/31/JavaScript面向对象笔记/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/03/31/JavaScript面向对象笔记/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-  <article class="post">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-03-01T10:45:38.000Z"><a href="/2015/03/01/有关git/">周日, 3月 1 2015, 6:45:38 晚上</a></time>
-
-  
-    <h1 class="title"><a href="/2015/03/01/有关git/">有关Git</a></h1>
-  
-
-
-  
-  <div class="categories">
-  	<i class="fa fa-folder-open"></i>
-    <a href="/categories/项目笔记/">项目笔记</a>
-  </div>
-
-
-  
-  <div class="tags">
-  	<i class="fa fa-tag"></i>
-    <a href="/tags/git/">git</a>, <a href="/tags/note/">note</a>
-  </div>
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br>
-      
-    </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/03/01/有关git/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/03/01/有关git/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/03/01/有关git/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-  <article class="photo">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-02-14T04:28:14.000Z"><a href="/2015/02/14/Sketch/">周六, 2月 14 2015, 12:28:14 中午</a></time>
-
-  
-    <h1 class="title"><a href="/2015/02/14/Sketch/">Sketch</a></h1>
-  
-
-
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="/img/IMG_0030.PNG">
-      
-        <img src="/img/IMG_0022.PNG">
-      
-        <img src="/img/IMG_0024.PNG">
-      
-        <img src="/img/IMG_0025.PNG">
-      
-        <img src="/img/IMG_0026.PNG">
-      
-        <img src="/img/IMG_0027.PNG">
-      
-        <img src="/img/IMG_0028.PNG">
-      
-        <img src="/img/IMG_0029.PNG">
-      
-        <img src="/img/IMG_0031.PNG">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/02/14/Sketch/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/02/14/Sketch/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/14/Sketch/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-  <article class="post">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-02-12T12:13:29.000Z"><a href="/2015/02/12/Javascript/">周四, 2月 12 2015, 8:13:29 晚上</a></time>
-
-  
-    <h1 class="title"><a href="/2015/02/12/Javascript/">Javascript 初步总结</a></h1>
-  
-
-
-  
-  <div class="categories">
-  	<i class="fa fa-folder-open"></i>
-    <a href="/categories/前端笔记/">前端笔记</a>
-  </div>
-
-
-  
-  <div class="tags">
-  	<i class="fa fa-tag"></i>
-    <a href="/tags/javascript/">javascript</a>, <a href="/tags/note/">note</a>
-  </div>
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p>javascript初学完一轮，这里需要把能想起来的东西整理一遍。当然javascript涉及的内容巨量，我只能以初学者的视角，描述出知识点的轮廓，但重要的细节也会尽力说明。<br>
-      
-    </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/02/12/Javascript/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/02/12/Javascript/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/12/Javascript/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-  <article class="post">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-02-08T12:25:08.000Z"><a href="/2015/02/08/新博客开通/">周日, 2月 8 2015, 8:25:08 晚上</a></time>
-
-  
-    <h1 class="title"><a href="/2015/02/08/新博客开通/">新博客开通</a></h1>
-  
-
-
-  
-  <div class="categories">
-  	<i class="fa fa-folder-open"></i>
-    <a href="/categories/记录/">记录</a>
-  </div>
-
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p>到写下这段文字时，本博客也宣布初步完工。<br>
-      
-    </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/02/08/新博客开通/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/02/08/新博客开通/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/08/新博客开通/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-  <article class="post">
- 
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-02-07T03:58:51.000Z"><a href="/2015/02/07/Hello-post/">周六, 2月 7 2015, 11:58:51 中午</a></time>
-
-  
-    <h1 class="title"><a href="/2015/02/07/Hello-post/">Hello post</a></h1>
-  
-
-
-  
-  <div class="categories">
-  	<i class="fa fa-folder-open"></i>
-    <a href="/categories/test/">test</a>
-  </div>
-
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    
-      <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-    
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/02/07/Hello-post/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://deacyn.com/2015/02/07/Hello-post/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/07/Hello-post/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <hr/>
-</article>
-
-
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
-<script src="/js/jquery.anystretch.min.js" type="text/javascript"></script>
-<script src="/js/cover.js" type="text/javascript"></script>
-
-
     <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div>
-  
-  &copy; 2015 Deacyn Zhang
-  
-</div>
-Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+</nav>
 
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
-<script src="/js/gallery.js" type="text/javascript"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
-
+        <header id="pisces_index_header" class="blog-background "  style="background-image: url('/img/home-bg0.jpg')">
+    <div class="pisces-index-heading">
+        
+        <a href="http://deacyn.com">
+            <h1>喵呜</h1>
+        </a>
+        <h4>给你妙悟</h4>
+        
+    </div>
+</header>
 
 
 
-
-    <script type="text/javascript">
-        (function(){
-
-            $(window).scroll(function(){
-
-                var scrollTop = $(window).scrollTop();
-                if ( scrollTop >200 ){
-                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
-                } else{
-                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
-                }
-
-            });
-
-        })();
-    </script>
-
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript">
-  (function($){
-    $('.fancybox').fancybox({
-      'titlePosition': 'inside'
-    });
-  })(jQuery);
-  </script>
-
-
+        <!-- Content -->
+        <!-- Body -->
+<nav class="header-nav container">
 
     
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"deacyn"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = 'http://static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
+
+    
+        <a href="">订阅</a>
+    
+
+    
+        <a href="/about">关于</a>
+    
+
+    
+        <a href="/tags">标签</a>
+    
+
+    
+        <a href="/categories">分类</a>
+    
+
+</nav>
+
+<!-- Content -->
+<div class="container">
+    <div class="row">
+        <!-- Article list -->
+        <div class="pisces-article-list ">
+        
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2015/12/13/hello-world/">Hello World</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 13 Dec 2015"> 13 Dec 2015</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/HEXO/">HEXO</a>
+    
+        <a class="tag" href="/tags/POST/">POST</a>
+    
+        <a class="tag" href="/tags/博客/">博客</a>
+    
+    </span>
 
 
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2015/12/13/hello-world/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+
+
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2015/03/31/JavaScript面向对象笔记/">JavaScript面向对象笔记</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 31 Mar 2015"> 31 Mar 2015</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/JavaScript/">JavaScript</a>
+    
+        <a class="tag" href="/tags/前端/">前端</a>
+    
+        <a class="tag" href="/tags/构造函数/">构造函数</a>
+    
+        <a class="tag" href="/tags/犀牛书/">犀牛书</a>
+    
+        <a class="tag" href="/tags/继承/">继承</a>
+    
+    </span>
+
+
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                <p>最近一直在刷犀牛书，感觉脑子里的知识还是太乱太零散，需要总结梳理一下。现在首先从面向对象编程开始。<br>
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2015/03/31/JavaScript面向对象笔记/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+
+
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2015/03/01/有关git/">有关Git</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 01 Mar 2015"> 01 Mar 2015</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/GIT/">GIT</a>
+    
+        <a class="tag" href="/tags/GITHUB/">GITHUB</a>
+    
+        <a class="tag" href="/tags/博客/">博客</a>
+    
+    </span>
+
+
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                <p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br>
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2015/03/01/有关git/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+
+
+        
+            
+    
+    <article class="pisces-article-item photo">
+        <section>
+        <a href="/2015/02/14/Sketch/" target="_blank">
+            <img src="/img/IMG_0030.PNG" alt="cover">
+        </a>
+        <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2015/02/14/Sketch/">Sketch</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 14 Feb 2015"> 14 Feb 2015</span>
+        
+
+
+    </div>
+</div>
+
+
+
+        </section>
+    </article>
+    
+
+
+
+
+
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2015/02/12/Javascript/">Javascript 初步总结</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 12 Feb 2015"> 12 Feb 2015</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/JavaScript/">JavaScript</a>
+    
+        <a class="tag" href="/tags/前端/">前端</a>
+    
+        <a class="tag" href="/tags/博客/">博客</a>
+    
+        <a class="tag" href="/tags/构造函数/">构造函数</a>
+    
+        <a class="tag" href="/tags/继承/">继承</a>
+    
+    </span>
+
+
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                <p>javascript初学完一轮，这里需要把能想起来的东西整理一遍。当然javascript涉及的内容巨量，我只能以初学者的视角，描述出知识点的轮廓，但重要的细节也会尽力说明。<br>
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2015/02/12/Javascript/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+
+
+        
+        
+
+        <!-- Pagination -->
+        <nav class="pagination container">
+    
+    
+    <a href="/page/2/" class="next">下一页 »</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+        </div>
+    </div>
+</div>
+
+    
+    <!-- Footer -->
+<footer class="pisces-footer clearfix ">
+    <section class="copyright"><a href="http://deacyn.com">喵呜</a> © 2015 </section>
+    <section>Designed by <a href="http://deacyn.com"><span>@<span> Albert </a>with<a href="https://hexo.io"> Hexo </a>
+    </section>
+    <section class="poweredby ">本博客采用拽酷炫的<a href="https://hexo.io"> Pisces </a></section>
+</footer>
+
+    
+<!-- jQuery -->
+<!-- Bootstrap Js -->
+<!-- Pisces Js -->
 
 <script type="text/javascript">
-  
-  $(function(){
-
-    $('.title').hover(
-      function() {      
-        $(this).stop().animate(
-          {'marginLeft': '10px'}, 200
-        );   
-      }, 
-      function() {       
-        $(this).stop().animate({'marginLeft': '0px'}, 200);      
-      
-    });   
-
-  });
-
-</script>
-<script type="text/javascript">
-  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "//hm.baidu.com/hm.js?e374043b6387919f72d88cc71b87c543' type='text/javascript'%3E%3C/script%3E"));
+    var piscesConfig = {
+        navAlways: true,
+        duoshuoEnable: undefined && 'duoshuo' == "duoshuo" ? true : false,
+        duoshuoShortname: 'deacyn',
+        baiduTongjiEnable: true
+    }
 </script>
 
+
+<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>window.require || document.write('<script src="/js/require-2.1.9.min.js">\x3C/script>')</script>
+<script>window.jQuery || document.write('<script src="/js/jquery-2.1.4.min.js">\x3C/script>')</script>
+<script src="/js/pisces.js" type="text/javascript"></script>
 
 </body>
 </html>
