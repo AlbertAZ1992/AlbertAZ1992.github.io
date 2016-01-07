@@ -196,6 +196,18 @@ pre {
 .article-content .entry pre .clojure .title {
   color: #ffffff;
 }
+.article-content .entry table {
+  border-spacing: 0;
+}
+.article-content .entry .gutter {
+  color: #595959;
+  text-align: right;
+}
+.article-content .entry .gutter pre {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
 .pisces-navbar.index,
 .pisces-navbar.post {
   z-index: 10;
@@ -646,7 +658,8 @@ pre {
   color: #595959;
 }
 #comment {
-  margin: 8rem 2rem 0 2rem;
+  width: 75%;
+  margin: 8rem auto;
 }
 @media screen and (max-width: 767px) {
   .pisces-navbar.post .navbar-nav {

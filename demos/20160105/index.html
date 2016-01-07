@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>CSS Still Sucks 2015</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/wx.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/pojoaque.css">
+
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <style>
+                a img:hover{
+                    opacity: 0.7 !important;
+                }
+            </style>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-markdown>
+                    <script type="text/template">
+                        # *Work Reveal* 2015
+                        ### and how we try
+
+                        <small style="margin-top:27px;line-height:1.3em;">
+                            <a href="#/1">张鑫@Albert<br>Jan 2016</a>
+                        </small>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+						## *研究点*
+						+ 社交网络的信息传播
+						+ 复杂网络视角下的核反应系统
+
+                    </script>
+                </section>
+                <section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ## *社交网络的信息传播*
+
+	                       	```
+	                        主要关注信息传播和恶意软件传播
+	                        传染病网络暂时没考虑
+							```
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                    	### <em style="color:gold;">研究点</em> & *方法*
+
+
+
+	                        - *链接模式* 研究对象是 *个体* <br>
+	                        ```
+	                        根据基本对象间的关系
+	                        是否参演同一部电影、是否共同署名发表文章、...
+	                        挖掘群体中的连接模式和特征
+	                        获取群体的整体特征、发现群体中的社区结构、...
+
+	                        ```
+	                        - *传播模式* 研究对象是 *传播机制* <br>
+	                        ```
+	                        目标是理解和认识群体中的心理化过程
+	                        投资者总是在假设已经了解其他投资者计划的前提下作出决策
+	                        投资者在决策之前就存在一个完整的心理化过程
+	                        跟踪群体中的信息传播模式，可以描述个体心理化过程
+	                        ```
+
+	                    </script>
+	                </section>
+	                <section data-markdown data-background="#ddd" class="Dark">
+	                    <script type="text/template">
+	                    	### <em style="color:#69130C;">关注</em> *<span style="color:#000;">对象</span>*
+	                        <a style="margin:30px;" href="http://twitter.com/">
+	                            <img class="logo" width="200" src="attach/logo/Twitter.png" />
+	                        </a>
+	                        <a style="margin:30px;" href="http://weibo.com/">
+	                            <img class="logo" width="200" src="attach/logo/Weibo.png" />
+	                        </a>
+
+							<p class="fragment">hashtag、retweet、user<br>话题、转发、用户</p>
+	                    </script>
+	                </section>
+	                <section data-markdown data-background="#ddd" class="Dark">
+	                    <script type="text/template">
+	                    	### <em style="color:#69130C;">关注</em> *<span style="color:#000;">对象</span>*
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-left:-50%;">
+	                            <img class="logo" src="attach/1.png" />
+	                        </a>
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-right:-50%;
+	                            margin-left: -5%;">
+	                            <img class="logo" src="attach/0.png" />
+	                        </a>
+
+	                        <p style="margin-top: -40px;">16847pots、9625users</p>
+	                    </script>
+	                </section>
+	                <section data-markdown data-background="#ddd" class="Dark">
+	                    <script type="text/template">
+	                    	### <em style="color:#69130C;">关注</em> *<span style="color:#000;">对象</span>*
+	                        <a style="margin:30px;">
+	                            <img width="600" src="attach/3.png" />
+	                        </a>
+	                        <p class="fragment">
+	                        	<small>
+								网易泄露事件包含3588个用户发布的3637条转发消息，其辟谣事件包含了1553个用户发布的1595条转发消息。这是一对`negative`和`positive`信息。
+								</small><small>
+								青岛大排档事件包含5109个用户发布的5326条消息，天津爆炸事件包含包含12488个用户发布的12685条消息。这两者并非成对的`positive`和`negative`信息。
+	                        	</small>
+
+	                        </p>
+	                    </script>
+	                </section>
+	                <section data-markdown data-background="#ddd" class="Dark">
+	                    <script type="text/template">
+	                    	### <em style="color:#69130C;">关注</em> *<span style="color:#000;">对象</span>*
+	                        <a style="margin:30px;">
+	                            <img width="600" src="attach/2.png" />
+	                        </a>
+							<p class="fragment">转发关系拓扑</p>
+	                    </script>
+	                </section>
+                </section>
+                <section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ## *社交网络的信息传播*
+
+	                        - 用户行为分析 <br>
+	                        - 传播模型的构建 <br>
+	                        - 算法分析和研究
+
+	                        ```
+	                        基于个体行为的网络传播
+	                        基于消息扩散的网络传播
+	                        网络传播的有效控制
+	                        网络传播的可预测性
+
+	                        ```
+
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *用户行为分析*
+
+							<small>统计用户行为习惯,用户的关注、粉丝、评论、转发、原创</small>
+
+	                        - *以用户关注关系建立连边* <br>
+	                        - *以用户共同行为建立连边*
+
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *用户行为分析*
+
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-left:-50%;">
+	                            <img class="logo" src="attach/5.png" />
+	                        </a>
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-right:-50%;
+	                            margin-left: -5%;">
+	                            <img class="logo" src="attach/6.png" />
+	                        </a>
+
+	                        <small>*关系网络和行为网络存在差异*</small>
+	                        <!-- .element: class="fragment" -->
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *用户行为分析*
+
+	                        <a style="margin:30px;">
+	                            <img width="600" src="attach/14.png" />
+	                        </a>
+
+	                        <small>*信息量、用户参与度的关系*</small>
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *用户行为分析*
+
+	                        <a style="margin:30px;">
+	                            <img width="600" src="attach/13.png" />
+	                        </a>
+
+	                        <small>*由统计产生的用户划分*</small>
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                    	### *用户行为分析*
+
+	                    	<small>转发机制的差别，拓扑的差异</small>
+	                        ```
+	                        twitter - retweet 根节点
+	                        weibo - 转发 父节点
+	                        ```
+
+	                        *个体影响力与时间的关系*
+	                        <!-- .element: class="fragment" -->
+
+	                        *推荐系统、信息推送策略*
+	                        <!-- .element: class="fragment" -->
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *算法分析和研究*
+
+							<small>Fast unfolding of communities in large networks</small>
+
+	                        - *以用户关注关系建立连边*<br>
+	                        - *以用户共同行为建立连边*<br>
+	                        - *无向网络转向有向网络*
+
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *算法分析和研究*
+
+							<small>Fast unfolding of communities in large networks</small>
+
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-left:-50%;">
+	                            <img class="logo" src="attach/7.png" />
+	                        </a>
+	                        <a style="
+	                            display:inline-block;
+	                            width: 70%;
+	                            margin-right:-50%;
+	                            margin-left: -5%;">
+	                            <img class="logo" src="attach/8.png" />
+	                        </a>
+
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *算法分析和研究*
+
+							<small>communities in directed networks</small>
+
+	                        <a style="margin:30px;" href="http://twitter.com/">
+	                            <img class="logo" width="600" src="attach/9.png" />
+	                        </a>
+
+	                        <p class="fragment" style="margin-top: -35px; font-size: 20px">有向网络的顶点转换到欧式空间中，将有向特性分散到邻居节点中</p>
+	                        <p class="fragment" style="font-size: 20px">更贴合物理意义的方法。*网络连接熵指标，如何准确定位网络中的类核团*</p>
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *传播模型的构建*
+
+							<small>转发路径，受影响节点</small>
+
+	                        - *针对单条独立信息*<br>
+	                        - *针对谣言和辟谣的信息对*
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### *传播模型的构建*
+
+	                        - *设定转发模型*<br>
+	                        - *模拟仿真*
+
+	                        <a style="display:block;" href="http://twitter.com/">
+	                            <img class="logo" width="300" src="attach/10.png" />
+	                        </a>
+
+	                        ```
+	                        细分不同的信息类型
+	                        置信策略的改进
+	                        提高传播预测的准确性
+
+	                        ```
+	                    </script>
+	                </section>
+                </section>
+				<section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ## *复杂网络视角下的核反应系统*
+
+	                       	```
+	                        把涉及 8000多种核素的 8 万多个热核反应
+	                        转化为一张有向加权的多层网络
+	                        构造网络时,参与反应的核素连接至产物核素
+							```
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### <em style="color:gold;">发现</em> & *期望*
+
+	                        <a style="
+	                            display:inline-block;
+	                            width: 60%;
+	                            margin-left:-50%;">
+	                            <img class="logo" src="attach/12.png" />
+	                        </a>
+	                        <a style="
+	                            display:inline-block;
+	                            width: 60%;
+	                            margin-right:-50%;
+	                            margin-left: -5%;">
+	                            <img class="logo" src="attach/11.png" />
+	                        </a>
+
+	                        <small>*核素网络相对比较规则,长边稀少,网络直径较大*</small>
+	                        <!-- .element: class="fragment" -->
+
+	                        <small>*根据反应所依赖的不同粒子,连边也有不同*</small>
+	                        <!-- .element: class="fragment" -->
+
+	                        <small>*稳定核素的度值与不稳定核素差异明显*</small>
+	                        <!-- .element: class="fragment" -->
+
+	                    </script>
+	                </section>
+	                <section data-markdown>
+	                    <script type="text/template">
+	                        ### <em style="color:gold;">发现</em> & *期望*
+
+	                        *网络中规律性的结构是否和元素的周期性有着密切关联.*
+	                        <!-- .element: class="fragment" -->
+
+	                        *根据反应所依赖的不同粒子,连边也有不同*
+	                        <!-- .element: class="fragment" -->
+
+	                        *复杂的重元素合成、化学反应、生物过程如何从中涌现出来*
+	                        <!-- .element: class="fragment" -->
+	                    </script>
+	                </section>
+				</section>
+                <section data-markdown>
+                    <script type="text/template">
+                        # *Question*
+
+                        - 耦合传播的应用场景，除了疾病爆发 →
+                        - 流行病网络与在线社交网络的联系 →
+                    </script>
+                </section>
+                <section style="text-align: left;">
+                    <h1>THANK YOU!</h1>
+
+                    <h5>
+                        <a href="#/1">张鑫<small style="text-transform: none; vertical-align: baseline;">@deacyn.com</small></a>
+                    </h5>
+                    <small>
+                        <a href="http://deacyn.com">Blog</a> /
+                        <a href="http://weibo.com/deacynzhang">@Albert</a> /
+                        <a href="https://github.com/Deacyn">GitHub</a> /
+                        <a href="https://www.zhihu.com/people/zi-yu-xi-ming">知乎</a>
+                    </small>
+                </section>
+            </div>
+        </div>
+
+        <pre style="display:none"><code> force highlight.js work </code></pre>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                /**
+                 * hux add, than set to false.
+                 *
+                 * using iframe is a bad idea,
+                 * there are some site refuse to display (X-Frame-Options)
+                 * and anything loaded by iframe can not be cached.
+                 *
+                 * It's better to encourage user use "Command + Click" to open.
+                 */
+                previewLinks: false,
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            function codeEditor(){
+                var nodes = document.querySelectorAll("code");
+                for (var i = 0; i < nodes.length; i++) {
+                    nodes[i].setAttribute("contenteditable", '');
+                }
+                console.log('code editable now.');
+            }
+            window.codeEditor = codeEditor;
+
+            document.addEventListener('DOMContentLoaded', function(){
+                setTimeout(function(){
+                    codeEditor();
+                },1000)
+            })
+        </script>
+    </body>
+</html>
