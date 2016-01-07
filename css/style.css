@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Ubuntu';
-  src: url('../font/Ubuntu.eot?#font-spider') format('embedded-opentype'), url('../font/Ubuntu.woff') format('woff'), url('../font/Ubuntu.ttf') format('truetype'), url('../font/Ubuntu.svg') format('svg');
+  font-family: 'monaco';
+  src: url('../font/monaco.eot?#font-spider') format('embedded-opentype'), url('../font/monaco.woff') format('woff'), url('../font/monaco.ttf') format('truetype'), url('../font/monaco.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: "monoOne", monospace, serif;
+  font-family: "monaco", monospace, serif;
   margin: 0;
   font-size: 1.6rem;
   color: #595959;
@@ -104,7 +104,7 @@ pre {
   -o-border-radius: 0.3rem;
   border-radius: 0.3rem;
   font-size: 1.6rem;
-  font-family: "monoOne", monospace, serif;
+  font-family: "monaco", monospace, serif;
   text-align: left;
   direction: ltr;
   white-space: pre;
@@ -127,7 +127,7 @@ pre {
 }
 .article-content .entry pre code {
   color: #c4f9fe;
-  font-family: "monoOne", monospace, serif;
+  font-family: "monaco", monospace, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
 }
