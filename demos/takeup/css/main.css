@@ -1,0 +1,478 @@
+/* Voyga */
+
+@font-face
+{
+    font-family: Adamcg;
+
+    src: url(../font/Adamcg.otf);
+}
+@font-face
+{
+    font-family: Ionicons;
+
+    src: url(../lib/ionicons.ttf);
+}
+*
+{
+    font-family: Adamcg;
+    text-align: center;
+}
+body
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+    opacity: 0;
+}
+p
+{
+    color: #f8f8f8;
+}
+
+/* MAIN */
+#work {
+    z-index: 0;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+}
+.page
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+    z-index: -1;
+    opacity: 0;
+
+}
+#tips
+{
+    -webkit-transform: translate3d(0, 0, 0) scale(.8);
+            transform: translate3d(0, 0, 0) scale(.8);
+}
+#tips.showTips
+{
+    z-index: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+}
+#tips.showTips.male
+{
+    background: #8CBDFA;
+}
+#tips.showTips.female
+{
+    background: #ef6360;
+}
+#tipsTitle
+{
+    font-family: SourceSansPro-Regular;
+    font-size: 2rem;
+    margin-top: 4.8rem;
+    text-align: center;
+    color: #fefefe;
+}
+#tipsBox
+{
+    margin: 0 auto;
+    width: 90%;
+    height: 36rem;
+    transition: .5s;
+}
+.listTips
+{
+    position: relative;
+    width: 100%;
+    height: 8rem;
+}
+.listTipTextBoxes
+{
+    position: absolute;
+    left: 0px;
+    width: auto;
+    height: 6rem;
+    text-align: left;
+}
+.listTipTitles
+{
+    font-size: 1.8rem;
+    color: #fefefe;
+    line-height: 3;
+}
+.listTipGoIcon
+{
+    right: 0px;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: .3rem solid #fefefe;
+}
+.listTipGoIcon i
+{
+    font-size: 1.6rem;
+    color: #fefefe;
+}
+#tipZero,
+#tipOne,
+#tipTwo,
+#tipThree
+{
+    transition: .5s;
+    margin: 0 auto;
+    width: 90%;
+    height: 36rem;
+}
+.tipDetailItem
+{
+    left: 0rem;
+    width: auto;
+    height: 6rem;
+    text-align: left;
+}
+.tipDetailItem span
+{
+    display: inline-block;
+    font-size: 2rem;
+    color: #fefefe;
+    margin: 0 .4rem;
+}
+.tipDetailTitle
+{
+    text-align: center;
+}
+.tipBack
+{
+    display: inline-block;
+    font-size: 2.4rem;
+    padding: .1rem .5rem;
+    border-bottom: solid .3rem #f8f8f8;
+    cursor: pointer;
+}
+.header
+{
+    position: relative;
+
+    width: 100%;
+    height: 12%;
+}
+#content
+{
+    position: relative;
+    width: 100%;
+    height: 88%;
+}
+#content > .center
+{
+    width: 100%;
+}
+#listIcon
+{
+    left: 3.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-top: .4rem;
+    border-radius: 50%;
+}
+#listIcon:hover
+{
+    cursor: pointer;
+}
+#listIcon i
+{
+    font-size: 2.4rem;
+    color: #fefefe;
+}
+.statusBall
+{
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: solid .2rem #FEF477;
+    border-radius: 50%;
+}
+.statusBallLight
+{
+    background: #FEF477 !important;
+}
+#statusBall + span
+{
+    display: inline-block;
+    width: .3rem;
+}
+#habitName,
+#tipName
+{
+    font-size: 2.4rem;
+    display: inline-block;
+    margin-top: .4rem;
+    color: #fefefe;
+}
+#dayBox
+{
+    position: relative;
+
+    width: 100%;
+    height: 64%;
+}
+#dayBox .center
+{
+    width: 100%;
+}
+#dayCount
+{
+    font-size: 12.4rem;
+    display: inline;
+    margin-top: .8rem;
+    color: #FEF477;
+}
+#infoBox
+{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin-left: .6rem;
+}
+#days
+{
+    font-size: 2.6rem;
+    text-align: left;
+    color: #FAEEEE;
+}
+#sinceDate
+{
+    font-size: 2rem;
+
+    margin-top: -.4rem;
+
+    text-align: left;
+
+    color: #D1C4C4;
+}
+#accomplishBox
+{
+    position: relative;
+    width: 100%;
+    height: 24%;
+}
+#accomplishButton
+{
+    font-size: 1.6rem;
+    width: 18.4rem;
+    height: 4.2rem;
+    margin: -.8rem auto 0;
+
+}
+#accomplishButton.normal
+{
+    width: 26.4rem;
+}
+/* MAIN */
+
+/* SETTING */
+.hide
+{
+    display: none;
+}
+
+
+#setting
+{
+    position: relative;
+    margin: 2rem auto 2rem auto;
+    width: 70%;
+    height: 90%;
+}
+#setting > .option
+{
+    transition: .5s ease-in-out;
+    width: 100%;
+    padding: 1rem;
+    border: solid .3rem #f8f8f8;
+}
+.preText
+{
+    font-size: 1.6rem;
+    display: inline-block;
+    padding-bottom: .1rem;
+    text-align: center;
+    width: 100%;
+}
+.inputTitles
+{
+    font-size: 1.6rem;
+
+    margin-top: 2.4rem;
+}
+.inputTitles:nth-child(1)
+{
+    margin-top: 0;
+}
+.inputs
+{
+    margin-top: 1.6rem;
+}
+.inputs[type='tel']
+{
+    font-size: 2.4rem;
+
+    display: inline-block;
+
+    height: 3.2rem;
+
+    color: #f8f8f8;
+    border-bottom: solid .3rem #f8f8f8;
+}
+.slashs
+{
+    font-size: 2.4rem;
+
+    position: relative;
+    top: .2rem;
+
+    display: inline;
+
+    margin: 0 .2rem 0 .8rem;
+}
+#yearInput
+{
+    width: 7.2rem;
+}
+#monthInput,
+#dateInput
+{
+    width: 3.6rem;
+}
+#weistIndicator,
+#weightIndicator,
+#heightIndicator
+{
+    font-size: 2.4rem;
+
+    margin-top: 1.6rem;
+}
+#weightInput,
+#weistInput,
+#heightInput
+{
+    width: 60%;
+    margin: 1.6rem auto 0;
+}
+#weightInput::-webkit-slider-thumb,
+#weistInput::-webkit-slider-thumb,
+#heightInput::-webkit-slider-thumb
+{
+    width: 2rem;
+    height: 2rem;
+    margin-top: -.8rem;
+    border: none;
+    border-radius: 50%;
+    background: #f8f8f8;
+
+    -webkit-appearance: none;
+}
+
+#weightInput::-webkit-slider-thumb,
+#weistInput::-webkit-slider-thumb
+{
+    margin-top: -.4rem;
+}
+
+#weightInput,
+#weistInput,
+#heightInput::-webkit-slider-runnable-track
+{
+    height: .4rem;
+
+    border: none;
+    background: #f8f8f8;
+}
+.buttons
+{
+    font-size: 1.6rem;
+
+    display: inline-block;
+
+    width: 12rem;
+    height: 4rem;
+    margin-top: 1.6rem;
+    padding-top: .4rem;
+    color: #f8f8f8;
+    border: solid .3rem #f8f8f8;
+    webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility:hidden;
+    -webkit-perspective:1000;
+}
+.buttons:hover
+{
+    cursor: pointer;
+}
+.buttons.male.active
+{
+    background: #f8f8f8;
+    border: none;
+    color: #8CBDFA;
+}
+.buttons.male.normal
+{
+    background: none;
+    color: #f8f8f8;
+}
+.buttons.female.active
+{
+    background: #f8f8f8;
+    border: none;
+    color: #ef6360;
+}
+.buttons.female.normal
+{
+    background: none;
+    color: #f8f8f8;
+}
+.selectedButton
+{
+    background: #f8f8f8 !important;
+}
+#upButton
+{
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+}
+#detailBottom,
+#goback,
+#takeup,
+#next,
+#tipsBottom
+{
+    display: inline-block;
+}
+#detailBottom,
+#tipsBottom
+{
+    width: 100%;
+}
+
+#goback,
+#takeup,
+#next
+{
+    font-size: 2.4rem;
+    padding: .1rem .5rem;
+    border-bottom: solid .3rem #f8f8f8;
+}
+#goback:hover,
+#takeup:hover,
+#next:hover
+{
+    cursor: pointer;
+}
+
+/* SETTING */

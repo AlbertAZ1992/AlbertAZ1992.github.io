@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="author" content="Voyga" />
+    <meta name="description" content="Death calculator" />
+    <link rel="stylesheet" href="lib/v.css" />
+    <link rel="stylesheet" href="lib/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="icon/icon.png" />
+    <script src="lib/vue.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/fastclick.min.js"></script>
+    <script src="lib/thumbs.min.js"></script>
+    <script src="lib/v.js"></script>
+    <script src="lib/vDate.js"></script>
+    <script src="lib/vCordova.js"></script>
+    <script src="lib/vIs.js"></script>
+    <script src="lib/vStorage.js"></script>
+    <script src="js/home.js"></script>
+    <title>TakeUp</title>
+</head>
+<body v-bind:style="{
+    'background': statics.colors[colorParam][0]
+}">
+    <div id="setting" v-show="status.setting">
+        <p class="preText" >TELL US YOUR PROFILE</p>
+        <p class="preText" >MAKE YOUR HEATH DATA MORE ACCURATE</p>
+        <div class="option" v-bind:class = "{
+        'center': status.baseSetting,
+        'left': status.detailSetting || status.takeup
+        }">
+            <p class="inputTitles">BIRTHDAY</p>
+            <input id="yearInput" class="inputs" type="tel" v-model="inputs.year" /><p class="slashs">/</p>
+            <input id="monthInput" class="inputs" type="tel" v-model="inputs.month" /><p class="slashs">/</p>
+            <input id="dateInput" class="inputs" type="tel" v-model="inputs.date" />
+            <p class="inputTitles">HEIGHT</p>
+            <p id="heightIndicator" v-text="inputs.height"></p>
+            <input id="heightInput" type="range" min="140" max="240" step="1" v-model="inputs.height" v-on:input="save()"/>
+            <p class="inputTitles">GENDER</p>
+            <button class="buttons male active" v-bind:class="{'active': inputs.gender == 'male','normal': inputs.gender == 'female'}" v-on:click="inputs.gender = 'male', save()">MALE</button>
+            <button class="buttons female normal" v-bind:class="{'active': inputs.gender == 'female','normal': inputs.gender == 'male'}" v-on:click="inputs.gender = 'female', save()">FEMALE</button>
+        </div>
+        <div class="option" v-bind:class = "{
+        'right': status.baseSetting,
+        'center': status.detailSetting,
+        'left': status.takeup,
+        }">
+            <p class="inputTitles">WEIGHT</p>
+            <p id="weightIndicator" v-text="inputs.weight"></p>
+            <input id="weightInput" type="range" min="40" max="180" step="1" v-model="inputs.weight" v-on:input="save()"/>
+            <p class="inputTitles">WEIST</p>
+            <p id="weistIndicator" v-text="inputs.weist"></p>
+            <input id="weistInput" type="range" min="40" max="140" step="1" v-model="inputs.weist" v-on:input="save()"/>
+            <p class="inputTitles">SPORT YOU LIKE</p>
+            <button class="buttons active" v-bind:class="{'active': inputs.sport == 0,'normal': inputs.sport != 0,'male': inputs.gender == 'male','female': inputs.gender == 'female'}" v-on:click="inputs.sport = 0, save()">RUNNING</button>
+            <button class="buttons normal" v-bind:class="{'active': inputs.sport == 1,'normal': inputs.sport != 1,'male': inputs.gender == 'male','female': inputs.gender == 'female'}" v-on:click="inputs.sport = 1, save()">BICYCLING</button>
+            <button class="buttons normal" v-bind:class="{'active': inputs.sport == 2,'normal': inputs.sport != 2,'male': inputs.gender == 'male','female': inputs.gender == 'female'}" v-on:click="inputs.sport = 2, save()">SWIMMING</button>
+        </div>
+        <p id="next" class="bottom horiCenter" v-show="status.baseSetting" v-on:click="save(), next()">NEXT</p>
+        <div id="detailBottom"class="bottom horiCenter" v-show="status.detailSetting">
+            <p id="goback" v-on:click="save(), goback()">GOBACK</p>
+            <p id="takeup" v-on:click="save(), calculate()">TAKEUP</p>
+        </div>
+
+    </div>
+    <div id="work" class="page" v-show="status.takeup">
+        <header class="header">
+            <div id="listIcon" class="vertiCenter" v-on:click="status.tipsPage = true">
+                <i class="icon ion-navicon-round center"></i>
+            </div>
+            <div class="center">
+                <div class="statusBall" v-bind:class="{ 'statusBallLight': accomplished }"></div>
+                <span></span>
+                <p id="habitName" v-text="currentSport"></p>
+            </div>
+        </header>
+        <div id="dayBox">
+            <div class="center">
+                <p id="dayCount" v-text="streak"></p>
+                <div id="infoBox">
+                    <p id="days" v-text="'day' | pluralityCheck streak | uppercase"></p>
+                    <p id="sinceDate" v-text="getCurrentHabit.start | removeYear"></p>
+                </div>
+            </div>
+        </div>
+        <div id="accomplishBox">
+            <div class="center">
+                <button id="accomplishButton" class="buttons"
+                v-bind:class="{
+                'active': accomplished,
+                'normal': !accomplished,
+                'male': inputs.gender == 'male',
+                'female': inputs.gender == 'female'
+                }"
+                v-on:click="accomplish()"
+                v-text="accomplished ? 'Accomplished' : 'Accomplished Today ?'">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="tips" class="page"
+    v-bind:class="{
+    'showTips': status.tipsPage,
+    'male': inputs.gender == 'male',
+    'female': inputs.gender == 'female'
+    }">
+        <header class="header">
+            <div class="center">
+                <div class="statusBall statusBallLight"></div>
+                <span></span>
+                <p id="tipName" v-text="showWarning | uppercase"></p>
+            </div>
+        </header>
+        <div id="tipsBox" v-bind:class="{'left':status.tipsMove,'center':!status.tipsMove}">
+            <div class="listTips" v-for="tip in statics.tips" v-on:click="callTip($index)">
+                <div class="listTipTextBoxes vertiCenter">
+                    <p class="listTipTitles"
+                    v-text="tip | uppercase"></p>
+                </div>
+                <div class="listTipGoIcon vertiCenter" >
+                    <i class="icon ion-chevron-right center"></i>
+                </div>
+            </div>
+        </div>
+        <div id="tipZero" v-bind:class="[status.tipsDetail0 ? 'center':'right']">
+            <div class="tipDetailItem tipDetailTitle">
+                <span>REPORT</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>MY BMI RESULT:</span>
+                <span v-text="report.data.valueBMI | toFixed"></span>
+            </div>
+            <div class="tipDetailItem">
+                <span>MY FAT RATIO:</span>
+                <span v-text="report.data.fatRatio | toPercent"></span>
+            </div>
+            <div class="tipDetailItem" v-show="isFat">
+                <span>CALORIES I NEED TO BURN:</span>
+                <span v-text="report.data.calorieDelta | toFixed"></span>
+                <span>KCAL</span>
+            </div>
+            <p class="tipBack" v-on:click="menuTip()">GOBACK</p>
+        </div>
+        <div id="tipOne" v-bind:class="[status.tipsDetail1 ? 'center':'right']">
+            <div class="tipDetailItem tipDetailTitle">
+                <span>
+                    <span >I NEED TO </span>
+                    <span v-text="currentSport"></span>
+                </span>
+            </div>
+            <div class="tipDetailItem">
+                <span v-text="report.data.sportMsg.hours"></span>
+                <span>HOUR PER DAY</span>
+            </div>
+            <div class="tipDetailItem">
+                <span v-text="report.data.sportMsg.kCal"></span>
+                <span>KCAL PER DAY</span>
+            </div>
+            <div class="tipDetailItem" v-show="isFat">
+                <span>TOTAL TIME</span>
+                <span v-text="report.data.sportMsg.total | ceil"></span>
+                <span>DAYS</span>
+            </div>
+            <p class="tipBack" v-on:click="menuTip()">GOBACK</p>
+        </div>
+        <div id="tipTwo" v-bind:class="[status.tipsDetail2 ? 'center':'right']">
+            <div class="tipDetailItem tipDetailTitle">
+                <span>NUTRITION I NEED PER DAY</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>TOTAL:</span>
+                <span v-text="report.data.nutrition.total | toFixed"></span>
+                <span>g</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>CARBOHYDRATE:</span>
+                <span v-text="report.data.nutrition.carb | toFixed"></span>
+                <span>g</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>PROTEIN:</span>
+                <span v-text="report.data.nutrition.protein | toFixed"></span>
+                <span>g</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>FAT:</span>
+                <span v-text="report.data.nutrition.fat | toFixed"></span>
+                <span>g</span>
+            </div>
+            <p class="tipBack" v-on:click="menuTip()">GOBACK</p>
+        </div>
+        <div id="tipThree" v-bind:class="[status.tipsDetail3 ? 'center':'right']">
+            <div class="tipDetailItem tipDetailTitle">
+                <span>70% NUTRITION, 30% EXERCISE</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>ALTERNATE WORK WITH REST</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>LATE IS BETTER THAN NEVER</span>
+            </div>
+            <div class="tipDetailItem">
+                <span>A JOURNEY OF A THOUSAND MILES BEGIN WITH ONE STEP</span>
+            </div>
+            <p class="tipBack" v-on:click="menuTip()">GOBACK</p>
+        </div>
+
+        <div id="tipsBottom"class="bottom">
+            <button id="reSettingButton" class="buttons normal"
+                v-bind:class="{
+                'male': inputs.gender == 'male',
+                'female': inputs.gender == 'female'
+                }"
+                v-on:click="resetting()">RESETTING
+            </button>
+            <button id="gotItButton" class="buttons normal"
+                v-bind:class="{
+                'male': inputs.gender == 'male',
+                'female': inputs.gender == 'female'
+                }"
+                v-on:click="takeup()">
+                GOT IT !
+            </button>
+        </div>
+
+
+    </div>
+</body>
+</html>
