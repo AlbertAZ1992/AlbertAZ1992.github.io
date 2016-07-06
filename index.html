@@ -179,9 +179,13 @@ react在这时候帮助做的事情，是形成单向数据流。这样给出初
         </header>
         <section class="article-excerpt">
             
-                ##变量的结构赋值ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
-###数组的结构赋值ES6 中数组赋值允许写成下面这样，本质上属于“模式匹配”
-123456789101112var [a, b, c] = [1, 2, 3];let [foo, [[bar], baz]] = [1, [[2], 3]];let [ , , third]
+                ##变量的结构赋值
+ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+###数组的结构赋值
+ES6 中数组赋值允许写成下面这样，本质上属于“模式匹配”
+var [a, b, c] = [1, 2, 3];
+let [foo, [[bar], baz]] = [1, [[2], 3]];
+let [ , , third] = ["foo", 
             
         </section>
         <footer>
@@ -270,8 +274,14 @@ presets字段设定转码规则，官方提供以下的规则集，你可以根�
             
                 去年秋天就买了《ECMAScript6入门》这本书，然而拖到现在都没怎么看。到现在写项目都是在用ES5，感觉不能再这样了，得开始学ES6。
 ##let和const命令
-###let命令let命令类似于var，用于变量声明，但是所声明的变量，只在let命令所在的代码块内有效。
-1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceErro
+###let命令
+let命令类似于var，用于变量声明，但是所声明的变量，只在let命令所在的代码块内有效。
+{
+  let a = 10;
+  var b = 1;
+}
+
+a // ReferenceError: a is not
             
         </section>
         <footer>

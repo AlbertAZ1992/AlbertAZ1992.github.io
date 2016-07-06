@@ -151,7 +151,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  browserify script.js -o bundle.js \&#10;  -t [ babelify --presets [ es2015 ] ]</span><br></pre></td></tr></table></figure>
 <p>上面代码将ES6脚本script.js，转为bundle.js，浏览器直接加载后者就可以了。</p>
 <p>在package.json设置下面的代码，就不用每次命令行都输入参数了。</p>
-<p>{<br>  “browserify”: {<br>    “transform”: [[“babelify”, { “presets”: [“es2015”] }]]<br>  }<br>}</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">browserify</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">transform</span>": <span class="value">[[<span class="string">"babelify"</span>, &#123; "<span class="attribute">presets</span>": <span class="value">[<span class="string">"es2015"</span>] </span>&#125;]]</span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </div>
