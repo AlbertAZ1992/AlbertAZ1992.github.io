@@ -110,24 +110,18 @@
         <header>
             <div class="info-wrapper">
     
-    <h2 class="article-list-title"><a href="/2015/03/31/JavaScript面向对象笔记/">JavaScript面向对象笔记</a></h2>
+    <h2 class="article-list-title"><a href="/2016/06/24/有关React、Redux、Flux的关系的想法/">有关React、Redux、Flux的关系的想法</a></h2>
     
     
     <div class="article-meta">
-        <span class="article-time" datetime=" 31 Mar 2015"> 31 Mar 2015</span>
+        <span class="article-time" datetime=" 24 Jun 2016"> 24 Jun 2016</span>
         
     <span class="article-tags">
     
-        <a class="tag" href="/tags/JavaScript/">JavaScript</a>
+        <a class="tag" href="/tags/React/">React</a>
     
         <a class="tag" href="/tags/前端/">前端</a>
     
-        <a class="tag" href="/tags/构造函数/">构造函数</a>
-    
-        <a class="tag" href="/tags/犀牛书/">犀牛书</a>
-    
-        <a class="tag" href="/tags/继承/">继承</a>
-    
     </span>
 
 
@@ -140,11 +134,14 @@
         </header>
         <section class="article-excerpt">
             
-                <p>最近一直在刷犀牛书，感觉脑子里的知识还是太乱太零散，需要总结梳理一下。现在首先从面向对象编程开始。<br>
+                看到知乎上有有人提问 怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗
+我的想法，内容如下：
+写前端的时候需要考虑的最基本的问题无非就是两个：一是根据数据渲染页面，二是根据页面变动更新数据。在数据和界面频繁变动、逻辑复杂的时候，处理着两个问题就很不容易，需要框架。
+react在这时候帮助做的事情，是形成单向数据流。这样给出初始页面和数据，当页面或者数据变动时，reac
             
         </section>
         <footer>
-            <div class="article-readmore"><a href="/2015/03/31/JavaScript面向对象笔记/" title="点击阅读全文">阅读全文 »</a></div>
+            <div class="article-readmore"><a href="/2016/06/24/有关React、Redux、Flux的关系的想法/" title="点击阅读全文">阅读全文 »</a></div>
         </footer>
     </article>
     
@@ -158,97 +155,18 @@
         <header>
             <div class="info-wrapper">
     
-    <h2 class="article-list-title"><a href="/2015/03/01/有关git/">有关Git</a></h2>
+    <h2 class="article-list-title"><a href="/2016/04/28/ES6 学习笔记（二）/">ES6 学习笔记（二）</a></h2>
     
     
     <div class="article-meta">
-        <span class="article-time" datetime=" 01 Mar 2015"> 01 Mar 2015</span>
+        <span class="article-time" datetime=" 28 Apr 2016"> 28 Apr 2016</span>
         
     <span class="article-tags">
     
-        <a class="tag" href="/tags/GIT/">GIT</a>
-    
-        <a class="tag" href="/tags/GITHUB/">GITHUB</a>
-    
-        <a class="tag" href="/tags/博客/">博客</a>
-    
-    </span>
-
-
-
-    </div>
-</div>
-
-
-
-        </header>
-        <section class="article-excerpt">
-            
-                <p>自己写的东西一般在本地，如果换电脑需要更新源文件时候就会比较麻烦。<br>这时候可以比较靠谱的方法就是用Git来管理。有关Git的知识很多，一篇文章不可能全部覆盖，这方面最简单也是最实用的例子就是在Github上的文件控制。<br>
-            
-        </section>
-        <footer>
-            <div class="article-readmore"><a href="/2015/03/01/有关git/" title="点击阅读全文">阅读全文 »</a></div>
-        </footer>
-    </article>
-    
-
-
-
-        
-            
-    
-    <article class="pisces-article-item photo">
-        <section>
-        <a href="/2015/02/14/Sketch/" target="_blank">
-            <img src="http://7xp53l.com1.z0.glb.clouddn.com/blog_IMG_0030.PNG" alt="cover">
-        </a>
-        <div class="info-wrapper">
-    
-    <h2 class="article-list-title"><a href="/2015/02/14/Sketch/">Sketch</a></h2>
-    
-    
-    <div class="article-meta">
-        <span class="article-time" datetime=" 14 Feb 2015"> 14 Feb 2015</span>
-        
-
-
-    </div>
-</div>
-
-
-
-        </section>
-    </article>
-    
-
-
-
-        
-            
-    
-    <article class="pisces-article-item txt">
-        <header>
-            <div class="info-wrapper">
-    
-    <h2 class="article-list-title"><a href="/2015/02/12/Javascript/">Javascript 初步总结</a></h2>
-    
-    
-    <div class="article-meta">
-        <span class="article-time" datetime=" 12 Feb 2015"> 12 Feb 2015</span>
-        
-    <span class="article-tags">
-    
-        <a class="tag" href="/tags/JavaScript/">JavaScript</a>
+        <a class="tag" href="/tags/ES6/">ES6</a>
     
         <a class="tag" href="/tags/前端/">前端</a>
     
-        <a class="tag" href="/tags/博客/">博客</a>
-    
-        <a class="tag" href="/tags/构造函数/">构造函数</a>
-    
-        <a class="tag" href="/tags/继承/">继承</a>
-    
     </span>
 
 
@@ -261,11 +179,13 @@
         </header>
         <section class="article-excerpt">
             
-                <p>javascript初学完一轮，这里需要把能想起来的东西整理一遍。当然javascript涉及的内容巨量，我只能以初学者的视角，描述出知识点的轮廓，但重要的细节也会尽力说明。<br>
+                ##变量的结构赋值ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+###数组的结构赋值ES6 中数组赋值允许写成下面这样，本质上属于“模式匹配”
+123456789101112var [a, b, c] = [1, 2, 3];let [foo, [[bar], baz]] = [1, [[2], 3]];let [ , , third]
             
         </section>
         <footer>
-            <div class="article-readmore"><a href="/2015/02/12/Javascript/" title="点击阅读全文">阅读全文 »</a></div>
+            <div class="article-readmore"><a href="/2016/04/28/ES6 学习笔记（二）/" title="点击阅读全文">阅读全文 »</a></div>
         </footer>
     </article>
     
@@ -279,19 +199,17 @@
         <header>
             <div class="info-wrapper">
     
-    <h2 class="article-list-title"><a href="/2015/02/08/新博客开通/">新博客开通</a></h2>
+    <h2 class="article-list-title"><a href="/2016/04/11/有关Babel/">有关Babel笔记</a></h2>
     
     
     <div class="article-meta">
-        <span class="article-time" datetime=" 08 Feb 2015"> 08 Feb 2015</span>
+        <span class="article-time" datetime=" 11 Apr 2016"> 11 Apr 2016</span>
         
     <span class="article-tags">
     
-        <a class="tag" href="/tags/HEXO/">HEXO</a>
+        <a class="tag" href="/tags/Babel/">Babel</a>
     
-        <a class="tag" href="/tags/博客/">博客</a>
-    
-        <a class="tag" href="/tags/域名/">域名</a>
+        <a class="tag" href="/tags/前端/">前端</a>
     
     </span>
 
@@ -305,11 +223,114 @@
         </header>
         <section class="article-excerpt">
             
-                <p>到写下这段文字时，本博客也宣布初步完工。<br>
+                ##配置文件Babel的配置文件是.babelrc，存放在项目的根目录下。使用Babel的第一步，就是配置这个文件。
+1234&#123;  "presets": [],  "plugins": []&#125;
+presets字段设定转码规则，官方提供以下的规则集，你可以根据需要安装。
+1# ES2015&#36716;&#30721;&#35268;&#21017;&#10;$ npm ins
             
         </section>
         <footer>
-            <div class="article-readmore"><a href="/2015/02/08/新博客开通/" title="点击阅读全文">阅读全文 »</a></div>
+            <div class="article-readmore"><a href="/2016/04/11/有关Babel/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2016/04/08/ES6 学习笔记（一）/">ES6 学习笔记（一）</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 08 Apr 2016"> 08 Apr 2016</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/ES6/">ES6</a>
+    
+        <a class="tag" href="/tags/前端/">前端</a>
+    
+    </span>
+
+
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                去年秋天就买了《ECMAScript6入门》这本书，然而拖到现在都没怎么看。到现在写项目都是在用ES5，感觉不能再这样了，得开始学ES6。
+##let和const命令
+###let命令let命令类似于var，用于变量声明，但是所声明的变量，只在let命令所在的代码块内有效。
+1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceErro
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2016/04/08/ES6 学习笔记（一）/" title="点击阅读全文">阅读全文 »</a></div>
+        </footer>
+    </article>
+    
+
+
+
+        
+            
+    
+    <article class="pisces-article-item txt">
+        <header>
+            <div class="info-wrapper">
+    
+    <h2 class="article-list-title"><a href="/2016/03/21/有关Angular、Vue、React的选择/">有关 Angular、Vue、React 的选择笔记</a></h2>
+    
+    
+    <div class="article-meta">
+        <span class="article-time" datetime=" 21 Mar 2016"> 21 Mar 2016</span>
+        
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/Angular/">Angular</a>
+    
+        <a class="tag" href="/tags/React/">React</a>
+    
+        <a class="tag" href="/tags/Vue/">Vue</a>
+    
+        <a class="tag" href="/tags/前端/">前端</a>
+    
+    </span>
+
+
+
+    </div>
+</div>
+
+
+
+        </header>
+        <section class="article-excerpt">
+            
+                ##选择前端框架时考虑的问题
+
+为了解决现有的问题
+为了解决将来可能会有的问题Angular 适用领域比较窄，React可以拓展到服务端、移动端Native，Vue比较轻量适用于业务场景非常轻的页面中。
+
+##Web应用中的考虑Web应用中需要考虑的问题主要分为三类：
+
+状态
+组织
+效率####状态在一个业务界面中，可能会根据某些数据去生成一块界面，然后通过界面上的某些操作，改变一些数据，从而影响
+            
+        </section>
+        <footer>
+            <div class="article-readmore"><a href="/2016/03/21/有关Angular、Vue、React的选择/" title="点击阅读全文">阅读全文 »</a></div>
         </footer>
     </article>
     

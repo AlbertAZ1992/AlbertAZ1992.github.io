@@ -7,7 +7,7 @@
 
     <!-- SEO title -->
     
-    <title>项目笔记 | 喵呜</title>
+    <title>有关React、Redux、Flux的关系的想法 | 喵呜</title>
 
     <!-- SEO meta -->
     
@@ -64,139 +64,54 @@
     <div class="clearfix"></div>
 </nav>
 
-        <header id="pisces_index_header" class="blog-background banner-mask content-header"  style="background-image: url('/img/home-bg0.jpg')">
-    <div class="pisces-index-heading">
+        <header id="pisces_post_header" class="post-background banner-mask" style="background-image: url('/img/home-bg0.jpg')">
+    <div class="pisces-post-heading">
+        <h1>有关React、Redux、Flux的关系的想法</h1>
         
-        <h1>分类</h1>
+        <span class="article-time" datetime=" 24 Jun 2016"> 24 Jun 2016<span class="article-author">Albert</span></span>
         
+    <span class="article-tags">
+    
+        <a class="tag" href="/tags/React/">React</a>
+    
+        <a class="tag" href="/tags/前端/">前端</a>
+    
+    </span>
+
+
+
     </div>
 </header>
 
-
-
         <!-- Content -->
-        
-<!-- Content -->
-<div class="container archive">
-    <div class="row">
-        <!-- Article list -->
-        <div class="pisces-article-list ">
-        
-        
-            
-    <article class="pisces-article-item txt">
-        <header>
-            <div class="info-wrapper">
-    
-    <h2 class="article-list-title"><a href="/2015/11/12/有关Promise，异步的问题/">有关百度 MAll，2015的记忆</a></h2>
-    
-    
-    <div class="article-meta">
-        <span class="article-time" datetime=" 12 Nov 2015"> 12 Nov 2015</span>
-        
-    <span class="article-tags">
-    
-        <a class="tag" href="/tags/前端/">前端</a>
-    
-        <a class="tag" href="/tags/百度/">百度</a>
-    
-    </span>
-
-
+        <!-- Body -->
+<div class="article-content">
+    <div class="entry">
+        <p>看到知乎上有有人提问 <a href="https://www.zhihu.com/question/47686258" target="_blank" rel="external">怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗</a></p>
+<p><a href="https://www.zhihu.com/question/47686258/answer/107454739" target="_blank" rel="external">我的想法</a>，内容如下：</p>
+<p>写前端的时候需要考虑的最基本的问题无非就是两个：一是根据数据渲染页面，二是根据页面变动更新数据。在数据和界面频繁变动、逻辑复杂的时候，处理着两个问题就很不容易，需要框架。</p>
+<p>react在这时候帮助做的事情，是形成单向数据流。这样给出初始页面和数据，当页面或者数据变动时，reac能推导出新的状态，复杂的计算交给自己的虚拟dom，然后重渲染。</p>
+<p>但是即便做到这样，依然有很多处理起来很复杂的地方，比如变动的数据可能来自服务器，可能来自客户端，页面变动也可能是点击、可能是下拉，还有各种路由变化等等。</p>
+<p>flux 和 redux帮助做的事，就是为了保证每一个变动都能映射到确切的状态，在尤其是逻辑非常庞杂的时候维护和控制单向数据流，相当于一个数据状态容器。</p>
+<p>至于redux和flux的关系，楼上有回答了差别在具体实现上，比如redux把state 和 reducer 做了分离，也没有dispatcher，但理解起来本质做的事情是基本一样的。</p>
+<p>还有，flux 和 redux 并不局限于react，可以应用于其他前端框架，但是缺少了flux或者redux的react是不够完善的。</p>
 
     </div>
 </div>
 
 
-
-        </header>
-        <hr>
-    </article>
-
-
-
-        
-            
-    <article class="pisces-article-item txt">
-        <header>
-            <div class="info-wrapper">
+<section id="comment">
+    <h3 class="title">留言</h3>
     
-    <h2 class="article-list-title"><a href="/2015/10/02/有关实际工作中的编程感受/">有关实际工作中的编程感受</a></h2>
+    <!-- Duoshuo Comment BEGIN -->
+    <div class="ds-thread" data-thread-key="/2016/06/24/有关React、Redux、Flux的关系的想法/"></div>
+    <!-- Duoshuo Comment END -->
     
-    
-    <div class="article-meta">
-        <span class="article-time" datetime=" 02 Oct 2015"> 02 Oct 2015</span>
-        
-    <span class="article-tags">
-    
-        <a class="tag" href="/tags/前端/">前端</a>
-    
-        <a class="tag" href="/tags/项目/">项目</a>
-    
-    </span>
+</section>
 
 
 
-    </div>
-</div>
-
-
-
-        </header>
-        <hr>
-    </article>
-
-
-
-        
-            
-    <article class="pisces-article-item txt">
-        <header>
-            <div class="info-wrapper">
-    
-    <h2 class="article-list-title"><a href="/2015/03/01/有关git/">有关Git</a></h2>
-    
-    
-    <div class="article-meta">
-        <span class="article-time" datetime=" 01 Mar 2015"> 01 Mar 2015</span>
-        
-    <span class="article-tags">
-    
-        <a class="tag" href="/tags/GIT/">GIT</a>
-    
-        <a class="tag" href="/tags/GITHUB/">GITHUB</a>
-    
-        <a class="tag" href="/tags/博客/">博客</a>
-    
-    </span>
-
-
-
-    </div>
-</div>
-
-
-
-        </header>
-        <hr>
-    </article>
-
-
-
-        
-        
-        <!-- Pagination -->
-        <nav class="pagination container">
-    
-    
-    <div class="clearfix"></div>
-</nav>
-
-        </div>
-    </div>
-</div>
-
-    <!-- Index layout -->
+    <!-- Archive && tag category detail layout -->
     
     <!-- Footer -->
 <footer class="pisces-footer clearfix ">
@@ -214,7 +129,7 @@
 <script type="text/javascript">
     var piscesConfig = {
         navAlways: true,
-        duoshuoEnable: undefined && 'duoshuo' == "duoshuo" ? true : false,
+        duoshuoEnable: true && 'duoshuo' == "duoshuo" ? true : false,
         baiduTongjiEnable: true
     }
     var duoshuoQuery = {short_name:'deacyn'};
