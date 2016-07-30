@@ -127,23 +127,70 @@
 <p><a href="https://heroku.com/deploy?template=https://github.com/chrisckchang/mean-contactlist" target="_blank" rel="external"><img src="http://s1.qhimg.com/static/a40349698512c3fa.svg" alt="Deploy"></a></p>
 <p>现在，我们开始一步一步来</p>
 <h2 id="创建一个新_App"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#create-a-new-app" target="_blank" rel="external">创建一个新 App</a></h2><p>创建一个新项目目录，随后 <code>cd</code> 进入该目录。在这个目录里我们会创建一个运行在 Heroku 上的 app 用来运行你的代码，我们首先使用 <a href="https://devcenter.heroku.com/articles/creating-apps" target="_blank" rel="external">Heroku CLI</a>：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/path/</span>.git<span class="regexp">/ $ heroku create Creating app... done, stack is cedar-14 https:/</span><span class="regexp">/sleepy-citadel-45065.herokuapp.com/</span> | <span class="string">https:</span><span class="comment">//git.heroku.com/sleepy-citadel-45065.git</span></span><br></pre></td></tr></table></figure>
-<p>当你创建了一个 app，一个名叫 heroku 的 git 分支也随即创建，并且关联你本地的 git 仓库。Heroku 同样也会为你的 app 随机生成一个名称 (如本例中的 sleepy-citadel-45065)。</p>
+<pre><code>$ git init Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/path/</span>.git<span class="regexp">/ $ heroku create Creating app... done, stack is cedar-14 https:/</span><span class="regexp">/sleepy-citadel-45065.herokuapp.com/</span> | <span class="string">https:</span><span class="comment">//git.heroku.com/sleepy-citadel-45065.git</span>
+</code></pre><p>当你创建了一个 app，一个名叫 heroku 的 git 分支也随即创建，并且关联你本地的 git 仓库。Heroku 同样也会为你的 app 随机生成一个名称 (如本例中的 sleepy-citadel-45065)。</p>
 <p>Heroku 通过根目录中的 <code>package.json</code> 文件来判断 app 是否为 Node.js 应用。因此我们创建一个 <code>package.json</code> 文件，内容如下:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"MEAN"</span></span>,</span><br><span class="line">  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,</span><br><span class="line">  "<span class="attribute">description</span>": <span class="value"><span class="string">"A MEAN app that allows users to manage contact lists"</span></span>,</span><br><span class="line">  "<span class="attribute">main</span>": <span class="value"><span class="string">"server.js"</span></span>,</span><br><span class="line">  "<span class="attribute">scripts</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span>,</span><br><span class="line">    "<span class="attribute">start</span>": <span class="value"><span class="string">"node server.js"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">dependencies</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">body-parser</span>": <span class="value"><span class="string">"^1.13.3"</span></span>,</span><br><span class="line">    "<span class="attribute">express</span>": <span class="value"><span class="string">"^4.13.3"</span></span>,</span><br><span class="line">    "<span class="attribute">mongodb</span>": <span class="value"><span class="string">"^2.1.6"</span></span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>这个 <code>package.json</code> 文件确定了将使用的 Node.js 的版本，以及本项目需要安装的各种依赖。当这个 app 部署完成后，Heroku会根据这个 <code>package.json</code> 文件，通过 npm install 指令安装相应版本的 Node.js 和相关依赖文件。</p>
+<pre><code>{
+  "<span class="attribute">name</span>": <span class="value"><span class="string">"MEAN"</span></span>,
+  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,
+  "<span class="attribute">description</span>": <span class="value"><span class="string">"A MEAN app that allows users to manage contact lists"</span></span>,
+  "<span class="attribute">main</span>": <span class="value"><span class="string">"server.js"</span></span>,
+  "<span class="attribute">scripts</span>": <span class="value">{
+    "<span class="attribute">test</span>": <span class="value"><span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span>,
+    "<span class="attribute">start</span>": <span class="value"><span class="string">"node server.js"</span>
+  </span>}</span>,
+  "<span class="attribute">dependencies</span>": <span class="value">{
+    "<span class="attribute">body-parser</span>": <span class="value"><span class="string">"^1.13.3"</span></span>,
+    "<span class="attribute">express</span>": <span class="value"><span class="string">"^4.13.3"</span></span>,
+    "<span class="attribute">mongodb</span>": <span class="value"><span class="string">"^2.1.6"</span>
+  </span>}
+</span>}
+</code></pre><p>这个 <code>package.json</code> 文件确定了将使用的 Node.js 的版本，以及本项目需要安装的各种依赖。当这个 app 部署完成后，Heroku会根据这个 <code>package.json</code> 文件，通过 npm install 指令安装相应版本的 Node.js 和相关依赖文件。</p>
 <p>为了保证你的系统可以在本地运行服务，在本地项目目录中执行下面的命令安装依赖：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<p>当所有依赖安装完成之后，你将可以在本地运行这个 app。</p>
+<pre><code>$ npm <span class="keyword">install</span>
+</code></pre><p>当所有依赖安装完成之后，你将可以在本地运行这个 app。</p>
 <h2 id="准备一个_MongoDB_数据库"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#provision-a-mongodb-database" target="_blank" rel="external">准备一个 MongoDB 数据库</a></h2><p>在完成你的应用和文件目录的配置之后，接下来需要创建一个 MongoDB 实例来保存应用数据。我们将会使用一个部署在云端的数据库服务平台 <a href="https://elements.heroku.com/addons/mongolab" target="_blank" rel="external">mLab</a> 来创建 MongoDB 数据库。</p>
 <p>想要把 mLab 插件添加到应用中，需要在 Heroku CLI 上运行以下命令：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku <span class="keyword">addons:create </span>mongolab</span><br></pre></td></tr></table></figure>
-<p>数据库的链接 URI 将保存在 <a href="https://devcenter.heroku.com/articles/config-vars" target="_blank" rel="external">config var</a> 中。接下来我们将会获取这个变量并在 Node.js 中定义为 <code>process.env.MONGODB_URI</code>。</p>
+<pre><code>$ heroku <span class="keyword">addons:create </span>mongolab
+</code></pre><p>数据库的链接 URI 将保存在 <a href="https://devcenter.heroku.com/articles/config-vars" target="_blank" rel="external">config var</a> 中。接下来我们将会获取这个变量并在 Node.js 中定义为 <code>process.env.MONGODB_URI</code>。</p>
 <p>现在我们准备好数据库了，可以开始编码了。</p>
 <h2 id="通过Node-js连接数据库和_App_服务"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#connect-mongodb-and-the-app-server-using-the-node-js-driver" target="_blank" rel="external">通过Node.js连接数据库和 App 服务</a></h2><p>目前 Node.js 针对 MongoDB 广泛使用的驱动有两种：官方的 <a href="https://docs.mongodb.org/ecosystem/drivers/node-js/#node-js-driver" target="_blank" rel="external">Node.js driver</a> 和 一个在 Node.js driver 基础上封装的 ODM（文件对象映射，类似于 SQL 的 ORM） <a href="http://mongoosejs.com/" target="_blank" rel="external">Mongoose</a>。 这两者各有各自的优势，本文我们会使用官方的 Node.js driver.</p>
 <p>首先创建一个 <code>server.js</code> 文件，我们会在这个文件里创建一个新的 Express 应用并且连接 mLab 数据库，内容如下：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = require(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> path = require(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = require(<span class="string">"body-parser"</span>);</span><br><span class="line"><span class="keyword">var</span> mongodb = require(<span class="string">"mongodb"</span>);</span><br><span class="line"><span class="keyword">var</span> ObjectID = mongodb.ObjectID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CONTACTS_COLLECTION = <span class="string">"contacts"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">app</span> = express();</span><br><span class="line"><span class="keyword">app</span>.<span class="keyword">use</span>(express.static(__dirname + <span class="string">"/public"</span>));</span><br><span class="line"><span class="keyword">app</span>.<span class="keyword">use</span>(bodyParser.json());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a database variable outside of the database connection callback to reuse the connection pool in your app.</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">db</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Connect to the database before starting the application server.</span></span><br><span class="line">mongodb.MongoClient.connect(process.env.MONGODB_URI, function (<span class="keyword">err</span>, database) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">err</span>) &#123;</span><br><span class="line">    console.<span class="literal">log</span>(<span class="keyword">err</span>);</span><br><span class="line">    process.<span class="keyword">exit</span>(1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Save database object from the callback for reuse.</span></span><br><span class="line">  <span class="keyword">db</span> = database;</span><br><span class="line">  console.<span class="literal">log</span>(<span class="string">"Database connection ready"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Initialize the app.</span></span><br><span class="line">  <span class="keyword">var</span> server = <span class="keyword">app</span>.listen(process.env.PORT || 8080, function () &#123;</span><br><span class="line">    <span class="keyword">var</span> port = server.address().port;</span><br><span class="line">    console.<span class="literal">log</span>(<span class="string">"App now running on port"</span>, port);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// CONTACTS API ROUTES BELOW</span></span><br></pre></td></tr></table></figure>
-<p>连接数据库的时候，有以下几点需要注意：</p>
+<pre><code><span class="keyword">var</span> express = require(<span class="string">"express"</span>);
+<span class="keyword">var</span> path = require(<span class="string">"path"</span>);
+<span class="keyword">var</span> bodyParser = require(<span class="string">"body-parser"</span>);
+<span class="keyword">var</span> mongodb = require(<span class="string">"mongodb"</span>);
+<span class="keyword">var</span> ObjectID = mongodb.ObjectID;
+
+<span class="keyword">var</span> CONTACTS_COLLECTION = <span class="string">"contacts"</span>;
+
+<span class="keyword">var</span> <span class="keyword">app</span> = express();
+<span class="keyword">app</span>.<span class="keyword">use</span>(express.static(__dirname + <span class="string">"/public"</span>));
+<span class="keyword">app</span>.<span class="keyword">use</span>(bodyParser.json());
+
+<span class="comment">// Create a database variable outside of the database connection callback to reuse the connection pool in your app.</span>
+<span class="keyword">var</span> <span class="keyword">db</span>;
+
+<span class="comment">// Connect to the database before starting the application server.</span>
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (<span class="keyword">err</span>, database) {
+  <span class="keyword">if</span> (<span class="keyword">err</span>) {
+    console.<span class="literal">log</span>(<span class="keyword">err</span>);
+    process.<span class="keyword">exit</span>(1);
+  }
+
+  <span class="comment">// Save database object from the callback for reuse.</span>
+  <span class="keyword">db</span> = database;
+  console.<span class="literal">log</span>(<span class="string">"Database connection ready"</span>);
+
+  <span class="comment">// Initialize the app.</span>
+  <span class="keyword">var</span> server = <span class="keyword">app</span>.listen(process.env.PORT || 8080, function () {
+    <span class="keyword">var</span> port = server.address().port;
+    console.<span class="literal">log</span>(<span class="string">"App now running on port"</span>, port);
+  });
+});
+
+<span class="comment">// CONTACTS API ROUTES BELOW</span>
+</code></pre><p>连接数据库的时候，有以下几点需要注意：</p>
 <ul>
 <li>尽可能多地使用数据库连接池 <a href="http://blog.mlab.com/2013/11/deep-dive-into-connection-pooling/" target="_blank" rel="external">connection pool</a> 来管理应用资源. 我们在全局作用域中初始化 <code>db</code> 变量，这样所有的路由控制器都能访问到数据库连接。</li>
 <li>在数据库连接完成之后再初始化应用，这样能够保证应用在进行数据库操作时不会崩溃或抛出错误。</li>
@@ -193,27 +240,198 @@
 </tbody>
 </table>
 <p>接下来我们在 <code>server.js</code> 文件中添加路由请求处理：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CONTACTS API ROUTES BELOW</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Generic error handler used by all endpoints.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span><span class="params">(res, reason, message, code)</span> </span>&#123;</span><br><span class="line">  console.log(<span class="string">"ERROR: "</span> + reason);</span><br><span class="line">  res.status(code || <span class="number">500</span>).json(&#123;<span class="string">"error"</span>: message&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  "/contacts"</span><br><span class="line"> *    GET: finds all contacts</span><br><span class="line"> *    POST: creates a new contact</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">app.<span class="keyword">get</span>(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  "/contacts/:id"</span><br><span class="line"> *    GET: find contact by id</span><br><span class="line"> *    PUT: update contact by id</span><br><span class="line"> *    DELETE: deletes contact by id</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">app.<span class="keyword">get</span>(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.put(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="keyword">delete</span>(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>上面这部分代码搭建好了我们所定义的接口的初步框架。</p>
+<pre><code><span class="comment">// CONTACTS API ROUTES BELOW</span>
+
+<span class="comment">// Generic error handler used by all endpoints.</span>
+<span class="function"><span class="keyword">function</span> <span class="title">handleError</span><span class="params">(res, reason, message, code)</span> </span>{
+  console.log(<span class="string">"ERROR: "</span> + reason);
+  res.status(code || <span class="number">500</span>).json({<span class="string">"error"</span>: message});
+}
+
+<span class="comment">/*  "/contacts"
+ *    GET: finds all contacts
+ *    POST: creates a new contact
+ */</span>
+
+app.<span class="keyword">get</span>(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+});
+
+app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+});
+
+<span class="comment">/*  "/contacts/:id"
+ *    GET: find contact by id
+ *    PUT: update contact by id
+ *    DELETE: deletes contact by id
+ */</span>
+
+app.<span class="keyword">get</span>(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+});
+
+app.put(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+});
+
+app.<span class="keyword">delete</span>(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+});
+</code></pre><p>上面这部分代码搭建好了我们所定义的接口的初步框架。</p>
 <h2 id="实现_API_接口"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#implement-the-api-endpoints" target="_blank" rel="external">实现 API 接口</a></h2><p>接下来，我们添加数据库处理逻辑来具体实现每个接口。</p>
 <p>首先实现 “/contacts” 请求下的 POST 接口。这个接口用来向数据库中创建和保存新的联系人。每个联系人对象将有如下的数据模型：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">_id</span>": <span class="value">&lt;ObjectId&gt;</span><br><span class="line">  <span class="string">"firstName"</span>: &lt;string&gt;</span>,</span><br><span class="line">  "<span class="attribute">lastName</span>": <span class="value">&lt;string&gt;</span>,</span><br><span class="line">  "<span class="attribute">email</span>": <span class="value">&lt;string&gt;</span>,</span><br><span class="line">  "<span class="attribute">phoneNumbers</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">mobile</span>": <span class="value">&lt;string&gt;</span>,</span><br><span class="line">    "<span class="attribute">work</span>": <span class="value">&lt;string&gt;</span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">twitterHandle</span>": <span class="value">&lt;string&gt;</span>,</span><br><span class="line">  "<span class="attribute">addresses</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">home</span>": <span class="value">&lt;string&gt;</span>,</span><br><span class="line">    "<span class="attribute">work</span>": <span class="value">&lt;string&gt;</span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>下面的代码实现 /contacts 的 POST 请求:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> newContact = req.body;</span><br><span class="line">  newContact.createDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!(req.body.firstName || req.body.lastName)) &#123;</span><br><span class="line">    handleError(res, <span class="string">"Invalid user input"</span>, <span class="string">"Must provide a first or last name."</span>, <span class="number">400</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  db.collection(CONTACTS_COLLECTION).insertOne(newContact, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to create new contact."</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">201</span>).json(doc.ops[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>为了测试该请求和接口，我们作如下部署：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git add package.json <span class="variable">$ </span>git add server.js <span class="variable">$ </span>git commit -m <span class="string">'first commit'</span> <span class="variable">$ </span>git push heroku master</span><br></pre></td></tr></table></figure>
-<p>接下来我们需要保证至少有一个应用实例正在运行：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku ps:scale web=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>随后，使用 <a href="https://curl.haxx.se/" target="_blank" rel="external">cURL</a> 来进行一个 POST 请求:</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -<span class="keyword">H</span> <span class="string">"Content-Type: application/json"</span> -<span class="keyword">d</span> '&#123;<span class="string">"firstName"</span>:<span class="string">"Chris"</span>, <span class="string">"lastName"</span>: <span class="string">"Chang"</span>, <span class="string">"email"</span>: <span class="string">"support@mlab.com"</span>&#125;' http:<span class="comment">//your-app-name.herokuapp.com/contacts</span></span><br></pre></td></tr></table></figure>
-<p>到此我们还没创建web app，但是通过访问 mLab <a href="https://devcenter.heroku.com/articles/mongolab#using-mlab-s-admin-tools-for-mongodb" target="_blank" rel="external">management portal</a>已经可以看到我们成功地创建并保存到数据库中。新创建的联系人会保存在<br>MongoDB 的 “contacts” 集合中。</p>
+<pre><code>{
+  "<span class="attribute">_id</span>": <span class="value">&lt;ObjectId&gt;
+  <span class="string">"firstName"</span>: &lt;string&gt;</span>,
+  "<span class="attribute">lastName</span>": <span class="value">&lt;string&gt;</span>,
+  "<span class="attribute">email</span>": <span class="value">&lt;string&gt;</span>,
+  "<span class="attribute">phoneNumbers</span>": <span class="value">{
+    "<span class="attribute">mobile</span>": <span class="value">&lt;string&gt;</span>,
+    "<span class="attribute">work</span>": <span class="value">&lt;string&gt;
+  </span>}</span>,
+  "<span class="attribute">twitterHandle</span>": <span class="value">&lt;string&gt;</span>,
+  "<span class="attribute">addresses</span>": <span class="value">{
+    "<span class="attribute">home</span>": <span class="value">&lt;string&gt;</span>,
+    "<span class="attribute">work</span>": <span class="value">&lt;string&gt;
+  </span>}
+</span>}
+</code></pre><p>下面的代码实现 /contacts 的 POST 请求:</p>
+<pre><code>app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="keyword">var</span> newContact = req.body;
+  newContact.createDate = <span class="keyword">new</span> <span class="built_in">Date</span>();
+
+  <span class="keyword">if</span> (!(req.body.firstName || req.body.lastName)) {
+    handleError(res, <span class="string">"Invalid user input"</span>, <span class="string">"Must provide a first or last name."</span>, <span class="number">400</span>);
+  }
+
+  db.collection(CONTACTS_COLLECTION).insertOne(newContact, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to create new contact."</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">201</span>).json(doc.ops[<span class="number">0</span>]);
+    }
+  });
+});
+</code></pre><p>为了测试该请求和接口，我们作如下部署：</p>
+<pre><code><span class="variable">$ </span>git add package.json <span class="variable">$ </span>git add server.js <span class="variable">$ </span>git commit -m <span class="string">'first commit'</span> <span class="variable">$ </span>git push heroku master
+</code></pre><p>接下来我们需要保证至少有一个应用实例正在运行：</p>
+<pre><code>$ heroku ps:scale web=<span class="number">1</span>
+</code></pre><p>随后，使用 <a href="https://curl.haxx.se/" target="_blank" rel="external">cURL</a> 来进行一个 POST 请求:</p>
+<pre><code>curl -<span class="keyword">H</span> <span class="string">"Content-Type: application/json"</span> -<span class="keyword">d</span> '{<span class="string">"firstName"</span>:<span class="string">"Chris"</span>, <span class="string">"lastName"</span>: <span class="string">"Chang"</span>, <span class="string">"email"</span>: <span class="string">"support@mlab.com"</span>}' http:<span class="comment">//your-app-name.herokuapp.com/contacts</span>
+</code></pre><p>到此我们还没创建web app，但是通过访问 mLab <a href="https://devcenter.heroku.com/articles/mongolab#using-mlab-s-admin-tools-for-mongodb" target="_blank" rel="external">management portal</a>已经可以看到我们成功地创建并保存到数据库中。新创建的联系人会保存在<br>MongoDB 的 “contacts” 集合中。</p>
 <p>接下来继续完善 <code>server.js</code> , 实现剩下所有的接口:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);</span><br><span class="line"><span class="keyword">var</span> mongodb = <span class="built_in">require</span>(<span class="string">"mongodb"</span>);</span><br><span class="line"><span class="keyword">var</span> ObjectID = mongodb.ObjectID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CONTACTS_COLLECTION = <span class="string">"contacts"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line">app.use(express.static(__dirname + <span class="string">"/public"</span>));</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a database variable outside of the database connection callback to reuse the connection pool in your app.</span></span><br><span class="line"><span class="keyword">var</span> db;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Connect to the database before starting the application server.</span></span><br><span class="line">mongodb.MongoClient.connect(process.env.MONGODB_URI, <span class="function"><span class="keyword">function</span> (<span class="params">err, database</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">    process.exit(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Save database object from the callback for reuse.</span></span><br><span class="line">  db = database;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Database connection ready"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Initialize the app.</span></span><br><span class="line">  <span class="keyword">var</span> server = app.listen(process.env.PORT || <span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> port = server.address().port;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"App now running on port"</span>, port);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// CONTACTS API ROUTES BELOW</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Generic error handler used by all endpoints.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span>(<span class="params">res, reason, message, code</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ERROR: "</span> + reason);</span><br><span class="line">  res.status(code || <span class="number">500</span>).json(&#123;<span class="string">"error"</span>: message&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  "/contacts"</span><br><span class="line"> *    GET: finds all contacts</span><br><span class="line"> *    POST: creates a new contact</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  db.collection(CONTACTS_COLLECTION).find(&#123;&#125;).toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, docs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to get contacts."</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">200</span>).json(docs);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> newContact = req.body;</span><br><span class="line">  newContact.createDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!(req.body.firstName || req.body.lastName)) &#123;</span><br><span class="line">    handleError(res, <span class="string">"Invalid user input"</span>, <span class="string">"Must provide a first or last name."</span>, <span class="number">400</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  db.collection(CONTACTS_COLLECTION).insertOne(newContact, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to create new contact."</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">201</span>).json(doc.ops[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  "/contacts/:id"</span><br><span class="line"> *    GET: find contact by id</span><br><span class="line"> *    PUT: update contact by id</span><br><span class="line"> *    DELETE: deletes contact by id</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  db.collection(CONTACTS_COLLECTION).findOne(&#123; _id: <span class="keyword">new</span> ObjectID(req.params.id) &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to get contact"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">200</span>).json(doc);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.put(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> updateDoc = req.body;</span><br><span class="line">  <span class="keyword">delete</span> updateDoc._id;</span><br><span class="line"></span><br><span class="line">  db.collection(CONTACTS_COLLECTION).updateOne(&#123;_id: <span class="keyword">new</span> ObjectID(req.params.id)&#125;, updateDoc, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to update contact"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">204</span>).end();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.delete(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  db.collection(CONTACTS_COLLECTION).deleteOne(&#123;_id: <span class="keyword">new</span> ObjectID(req.params.id)&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      handleError(res, err.message, <span class="string">"Failed to delete contact"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.status(<span class="number">204</span>).end();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="设置_web_app_的静态文件"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#set-up-static-files-for-the-web-app" target="_blank" rel="external">设置 web app 的静态文件</a></h2><p>完成了请求 API 之后，我们将用它来创建浏览器可访问的 Web App。</p>
+<pre><code><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);
+<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
+<span class="keyword">var</span> mongodb = <span class="built_in">require</span>(<span class="string">"mongodb"</span>);
+<span class="keyword">var</span> ObjectID = mongodb.ObjectID;
+
+<span class="keyword">var</span> CONTACTS_COLLECTION = <span class="string">"contacts"</span>;
+
+<span class="keyword">var</span> app = express();
+app.use(express.static(__dirname + <span class="string">"/public"</span>));
+app.use(bodyParser.json());
+
+<span class="comment">// Create a database variable outside of the database connection callback to reuse the connection pool in your app.</span>
+<span class="keyword">var</span> db;
+
+<span class="comment">// Connect to the database before starting the application server.</span>
+mongodb.MongoClient.connect(process.env.MONGODB_URI, <span class="function"><span class="keyword">function</span> (<span class="params">err, database</span>) </span>{
+  <span class="keyword">if</span> (err) {
+    <span class="built_in">console</span>.log(err);
+    process.exit(<span class="number">1</span>);
+  }
+
+  <span class="comment">// Save database object from the callback for reuse.</span>
+  db = database;
+  <span class="built_in">console</span>.log(<span class="string">"Database connection ready"</span>);
+
+  <span class="comment">// Initialize the app.</span>
+  <span class="keyword">var</span> server = app.listen(process.env.PORT || <span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+    <span class="keyword">var</span> port = server.address().port;
+    <span class="built_in">console</span>.log(<span class="string">"App now running on port"</span>, port);
+  });
+});
+
+<span class="comment">// CONTACTS API ROUTES BELOW</span>
+
+<span class="comment">// Generic error handler used by all endpoints.</span>
+<span class="function"><span class="keyword">function</span> <span class="title">handleError</span>(<span class="params">res, reason, message, code</span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">"ERROR: "</span> + reason);
+  res.status(code || <span class="number">500</span>).json({<span class="string">"error"</span>: message});
+}
+
+<span class="comment">/*  "/contacts"
+ *    GET: finds all contacts
+ *    POST: creates a new contact
+ */</span>
+
+app.get(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  db.collection(CONTACTS_COLLECTION).find({}).toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, docs</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to get contacts."</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">200</span>).json(docs);
+    }
+  });
+});
+
+app.post(<span class="string">"/contacts"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="keyword">var</span> newContact = req.body;
+  newContact.createDate = <span class="keyword">new</span> <span class="built_in">Date</span>();
+
+  <span class="keyword">if</span> (!(req.body.firstName || req.body.lastName)) {
+    handleError(res, <span class="string">"Invalid user input"</span>, <span class="string">"Must provide a first or last name."</span>, <span class="number">400</span>);
+  }
+
+  db.collection(CONTACTS_COLLECTION).insertOne(newContact, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to create new contact."</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">201</span>).json(doc.ops[<span class="number">0</span>]);
+    }
+  });
+});
+
+<span class="comment">/*  "/contacts/:id"
+ *    GET: find contact by id
+ *    PUT: update contact by id
+ *    DELETE: deletes contact by id
+ */</span>
+
+app.get(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  db.collection(CONTACTS_COLLECTION).findOne({ _id: <span class="keyword">new</span> ObjectID(req.params.id) }, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to get contact"</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">200</span>).json(doc);
+    }
+  });
+});
+
+app.put(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="keyword">var</span> updateDoc = req.body;
+  <span class="keyword">delete</span> updateDoc._id;
+
+  db.collection(CONTACTS_COLLECTION).updateOne({_id: <span class="keyword">new</span> ObjectID(req.params.id)}, updateDoc, <span class="function"><span class="keyword">function</span>(<span class="params">err, doc</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to update contact"</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">204</span>).end();
+    }
+  });
+});
+
+app.delete(<span class="string">"/contacts/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  db.collection(CONTACTS_COLLECTION).deleteOne({_id: <span class="keyword">new</span> ObjectID(req.params.id)}, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>{
+    <span class="keyword">if</span> (err) {
+      handleError(res, err.message, <span class="string">"Failed to delete contact"</span>);
+    } <span class="keyword">else</span> {
+      res.status(<span class="number">204</span>).end();
+    }
+  });
+});
+</code></pre><h2 id="设置_web_app_的静态文件"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#set-up-static-files-for-the-web-app" target="_blank" rel="external">设置 web app 的静态文件</a></h2><p>完成了请求 API 之后，我们将用它来创建浏览器可访问的 Web App。</p>
 <p>首先在项目根目录下创建一个 <code>public</code> 目录。随后将 example app 的 <a href="https://github.com/chrisckchang/mean-contactlist/tree/master/public" target="_blank" rel="external">public 目录</a> 拷贝到该目录下。 这个目录包含所有的 HTML 模板文件 和 AngularJS 代码。</p>
 <p>在 HTML 文件中，你会发现一些非常规的 HTML 代码，比如在 index.html 中的 “ng-view”，这些其实是 AngularJS 的指令:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"container"</span> ng-view&gt;</span><br></pre></td></tr></table></figure>
-<p>使用模板可以让我们复用代码并且动态地生成相应的视图。</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"container"</span> ng-view&gt;
+</code></pre><p>使用模板可以让我们复用代码并且动态地生成相应的视图。</p>
 <h2 id="利用_AngularJS_构建_Web_App"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#build-the-web-app-with-angularjs" target="_blank" rel="external">利用 AngularJS 构建 Web App</a></h2><p>我们将会使用 AngularJS 把客户端的所有内容整合成一个 Web App，包括管理页面路由请求、渲染不同页面的视图、向后端发送数据和接收来自后端的数据。</p>
 <p>我们的 AngularJS 代码位于 <code>/public/js</code> 目录下的 <code>app.js</code> 文件中。我们这里重点关注主页加载时的代码，也就是 (“/”) 路由请求时需要做的事。我们需要注意以下几点：</p>
 <ul>
@@ -222,11 +440,48 @@
 <li>用 AngularJS <a href="https://docs.angularjs.org/guide/controller" target="_blank" rel="external">controller</a> 来把数据转换到视图。</li>
 </ul>
 <p>这部分的代码如下:</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">"contactsApp"</span>, [<span class="string">'ngRoute'</span>])</span><br><span class="line">  .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$routeProvider</span></span><br><span class="line">      .when(<span class="string">"/"</span>, &#123;</span><br><span class="line">        templateUrl: <span class="string">"list.html"</span>,</span><br><span class="line">        controller: <span class="string">"ListController"</span>,</span><br><span class="line">        resolve: &#123;</span><br><span class="line">          contacts: function(Contacts) &#123;</span><br><span class="line">              return Contacts.getContacts();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .service(<span class="string">"Contacts"</span>, <span class="keyword">function</span>(<span class="variable">$http</span>) &#123;</span><br><span class="line">    this.getContacts = function() &#123;</span><br><span class="line">      return <span class="variable">$http</span>.get(<span class="string">"/contacts"</span>).</span><br><span class="line">        then(function(response) &#123;</span><br><span class="line">            return response;</span><br><span class="line">        &#125;, function(response) &#123;</span><br><span class="line">            alert(<span class="string">"Error retrieving contacts."</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .controller(<span class="string">"ListController"</span>, <span class="keyword">function</span>(contacts, <span class="variable">$scope</span>) &#123;</span><br><span class="line">    <span class="variable">$scope</span>.contacts = contacts.data;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>接下来，我们来关注每个部分是如何具体实现的。</p>
+<pre><code>angular.module(<span class="string">"contactsApp"</span>, [<span class="string">'ngRoute'</span>])
+  .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>) {
+    <span class="variable">$routeProvider</span>
+      .when(<span class="string">"/"</span>, {
+        templateUrl: <span class="string">"list.html"</span>,
+        controller: <span class="string">"ListController"</span>,
+        resolve: {
+          contacts: function(Contacts) {
+              return Contacts.getContacts();
+          }
+        }
+      })
+  })
+  .service(<span class="string">"Contacts"</span>, <span class="keyword">function</span>(<span class="variable">$http</span>) {
+    this.getContacts = function() {
+      return <span class="variable">$http</span>.get(<span class="string">"/contacts"</span>).
+        then(function(response) {
+            return response;
+        }, function(response) {
+            alert(<span class="string">"Error retrieving contacts."</span>);
+        });
+    }
+  })
+  .controller(<span class="string">"ListController"</span>, <span class="keyword">function</span>(contacts, <span class="variable">$scope</span>) {
+    <span class="variable">$scope</span>.contacts = contacts.data;
+  });
+</code></pre><p>接下来，我们来关注每个部分是如何具体实现的。</p>
 <h2 id="用_AngularJS_routeProvider_来分配路由"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#route-user-requests-with-angularjs-routeprovider" target="_blank" rel="external">用 AngularJS routeProvider 来分配路由</a></h2><p>路由的配置写在 <code>routeProvider</code> 模块。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">"contactsApp"</span>, [<span class="string">'ngRoute'</span>])</span><br><span class="line">  .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$routeProvider</span></span><br><span class="line">      .when(<span class="string">"/"</span>, &#123;</span><br><span class="line">        templateUrl: <span class="string">"list.html"</span>,</span><br><span class="line">        controller: <span class="string">"ListController"</span>,</span><br><span class="line">        resolve: &#123;</span><br><span class="line">          contacts: function(Contacts) &#123;</span><br><span class="line">              return Contacts.getContacts();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<p>主页的路由有以下几个组件组成：</p>
+<pre><code>angular.module(<span class="string">"contactsApp"</span>, [<span class="string">'ngRoute'</span>])
+  .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>) {
+    <span class="variable">$routeProvider</span>
+      .when(<span class="string">"/"</span>, {
+        templateUrl: <span class="string">"list.html"</span>,
+        controller: <span class="string">"ListController"</span>,
+        resolve: {
+          contacts: function(Contacts) {
+              return Contacts.getContacts();
+          }
+        }
+      })
+  })
+</code></pre><p>主页的路由有以下几个组件组成：</p>
 <ul>
 <li><code>templateUrl</code> 组件指定需要显示的模板。</li>
 <li><code>Contacts</code> 组件完成从 API 服务请求所有的联系人信息的工作。</li>
@@ -234,19 +489,39 @@
 </ul>
 <h2 id="使用_AngularJS_services_向_API_server_进行请求"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#use-angularjs-services-to-make-requests-to-the-api-server" target="_blank" rel="external">使用 AngularJS services 向 API server 进行请求</a></h2><p>AngularJS service 会创建一个可以被不同请求访问的同一个对象。我们创建的服务则相当于客户端的一个容器，包含所有的 API 请求接口。</p>
 <p>主页的路由中使用 <code>getContacts</code> 函数来请求联系人数据：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.service(<span class="string">"Contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">($http)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.getContacts = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $http.<span class="keyword">get</span>(<span class="string">"/contacts"</span>).</span><br><span class="line">      then(<span class="function"><span class="keyword">function</span><span class="params">(response)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span><span class="params">(response)</span> </span>&#123;</span><br><span class="line">        alert(<span class="string">"Error retrieving contacts."</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>我们的服务函数借用了 AngularJS <code>$http</code> 服务模块来创建一个 HTTP 请求。该模块同样也会返回一个 promise 对象，利用这个 promise 你可以修改或者增加其他功能（比如 logging）。</p>
+<pre><code>.service(<span class="string">"Contacts"</span>, <span class="function"><span class="keyword">function</span><span class="params">($http)</span> </span>{
+  <span class="keyword">this</span>.getContacts = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> $http.<span class="keyword">get</span>(<span class="string">"/contacts"</span>).
+      then(<span class="function"><span class="keyword">function</span><span class="params">(response)</span> </span>{
+        <span class="keyword">return</span> response;
+      }, <span class="function"><span class="keyword">function</span><span class="params">(response)</span> </span>{
+        alert(<span class="string">"Error retrieving contacts."</span>);
+      });
+  }
+</code></pre><p>我们的服务函数借用了 AngularJS <code>$http</code> 服务模块来创建一个 HTTP 请求。该模块同样也会返回一个 promise 对象，利用这个 promise 你可以修改或者增加其他功能（比如 logging）。</p>
 <p>需要注意，在使用 <code>$http</code> 服务时，我们使用了相对路径(例如, “/contacts”)而不是绝对路径（例如，app-name.herokuapp.com/contacts）。</p>
 <h2 id="使用_AngularJS_controllers_来扩展_scope_作用域参数"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#augment-our-scope-using-angularjs-controllers" target="_blank" rel="external">使用 AngularJS controllers 来扩展 scope 作用域参数</a></h2><p>到此为止，我们已经配置好了路由、定义好了需要展示的模板、利用 “Contacts” 服务取到了数据。接下来我们需要创建一个控制器 controller 来整合整个过程。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.controller(<span class="string">"ListController"</span>, <span class="keyword">function</span>(contacts, <span class="variable">$scope</span>) &#123;</span><br><span class="line">  <span class="variable">$scope</span>.contacts = contacts.data;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>我们的 controller 把服务端的联系人数据添加到 homepage 的 scope 作用域中，定义为变量 $scope.contacts。这样我们就可以在模板文件（比如 list.html）中直接获取这些数据。我们可以在模板中使用 AngularJS 的 <a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank" rel="external">ngRepeat directive</a>对所有的contacts 数据进行迭代处理：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"table table-hover"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">tr</span> <span class="attribute">ng-repeat</span>=<span class="value">"contact in contacts | orderBy:'lastName'"</span> <span class="attribute">style</span>=<span class="value">"cursor:pointer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">ng-href</span>=<span class="value">"#/contact/</span></span></span><span class="expression">&#123;&#123;<span class="variable">contact.</span>_<span class="variable">id</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">contact.firstName</span> &#125;&#125;</span><span class="xml"> </span><span class="expression">&#123;&#123; <span class="variable">contact.lastName</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="完成整个项目"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#completing-the-project" target="_blank" rel="external">完成整个项目</a></h2><p>现在我们对于需要实现的 homepage 的路由处理已经有了较深的理解，其他页面的处理是类似的模式 <a href="https://github.com/chrisckchang/mean-contactlist/blob/master/public/js/app.js" target="_blank" rel="external">/public/js/app.js file</a>。这些模块都需要定义一个<code>routeProvider</code>、一个或多个服务函数来产生相应的 HTTP 请求，以及一个 controller 来扩展 scope 作用域参数。</p>
+<pre><code>.controller(<span class="string">"ListController"</span>, <span class="keyword">function</span>(contacts, <span class="variable">$scope</span>) {
+  <span class="variable">$scope</span>.contacts = contacts.data;
+})
+</code></pre><p>我们的 controller 把服务端的联系人数据添加到 homepage 的 scope 作用域中，定义为变量 $scope.contacts。这样我们就可以在模板文件（比如 list.html）中直接获取这些数据。我们可以在模板中使用 AngularJS 的 <a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank" rel="external">ngRepeat directive</a>对所有的contacts 数据进行迭代处理：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"table table-hover"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">tr</span> <span class="attribute">ng-repeat</span>=<span class="value">"contact in contacts | orderBy:'lastName'"</span> <span class="attribute">style</span>=<span class="value">"cursor:pointer"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">ng-href</span>=<span class="value">"#/contact/"</span>&gt;</span><span class="comment"></span> <span class="comment"></span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><h2 id="完成整个项目"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#completing-the-project" target="_blank" rel="external">完成整个项目</a></h2><p>现在我们对于需要实现的 homepage 的路由处理已经有了较深的理解，其他页面的处理是类似的模式 <a href="https://github.com/chrisckchang/mean-contactlist/blob/master/public/js/app.js" target="_blank" rel="external">/public/js/app.js file</a>。这些模块都需要定义一个<code>routeProvider</code>、一个或多个服务函数来产生相应的 HTTP 请求，以及一个 controller 来扩展 scope 作用域参数。</p>
 <p>在完成 AngularJS 的代码之后，再次部署 app：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git add server.js <span class="variable">$ </span>git add public <span class="variable">$ </span>git commit -m <span class="string">'second commit'</span> <span class="variable">$ </span>git push heroku master</span><br></pre></td></tr></table></figure>
-<p>现在 web app 的所有组件都已经完成，你可以通过下面的命令打开 app 查看效果：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>heroku open</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#summary" target="_blank" rel="external">总结</a></h2><p>在这篇文章中，我们重点提到了以下几点：</p>
+<pre><code><span class="variable">$ </span>git add server.js <span class="variable">$ </span>git add public <span class="variable">$ </span>git commit -m <span class="string">'second commit'</span> <span class="variable">$ </span>git push heroku master
+</code></pre><p>现在 web app 的所有组件都已经完成，你可以通过下面的命令打开 app 查看效果：</p>
+<pre><code><span class="variable">$ </span>heroku open
+</code></pre><h2 id="总结"><a href="https://devcenter.heroku.com/articles/mean-apps-restful-api?c=7013A000000mLLiQAM&amp;utm_campaign=Display%20-%20Endemic%20-%20Cooper%20-%20Node%20-%20Blog%20-%20Mean-Stack&amp;utm_medium=display&amp;utm_source=cooperpress&amp;utm_content=blog&amp;utm_term=node#summary" target="_blank" rel="external">总结</a></h2><p>在这篇文章中，我们重点提到了以下几点：</p>
 <ul>
 <li>使用 Express 和 Node.js 创建 RESTful API server。</li>
 <li>连接 MongoDB database 和 API server 来完成查询和保存数据。</li>
