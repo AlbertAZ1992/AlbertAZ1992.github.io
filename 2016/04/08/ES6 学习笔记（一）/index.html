@@ -88,9 +88,7 @@
 <div class="article-content">
     <div class="entry">
         <p>去年秋天就买了《ECMAScript6入门》这本书，然而拖到现在都没怎么看。到现在写项目都是在用ES5，感觉不能再这样了，得开始学ES6。</p>
-<p>##let和const命令</p>
-<p>###let命令</p>
-<p><code>let</code>命令类似于<code>var</code>，用于变量声明，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
+<h2 id="let和const命令">let和const命令</h2><h3 id="let命令">let命令</h3><p><code>let</code>命令类似于<code>var</code>，用于变量声明，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
 <pre><code>{
   let a = <span class="number">10</span>;
   var b = <span class="number">1</span>;
@@ -173,8 +171,7 @@ bar(); <span class="comment">// [2, 2]</span>
     <span class="keyword">let</span> arg; <span class="comment">// 不报错</span>
   }
 }
-</code></pre><p>###块级作用域</p>
-<p>ES5只有全局作用域和函数作用域，没有块级作用域。<br>带来很多特殊问题：</p>
+</code></pre><h3 id="块级作用域">块级作用域</h3><p>ES5只有全局作用域和函数作用域，没有块级作用域。<br>带来很多特殊问题：</p>
 <pre><code><span class="keyword">var</span> tmp = <span class="string">"abc"</span>;
 <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>{
     <span class="built_in">console</span>.log(tmp);
@@ -274,8 +271,7 @@ f();<span class="comment">//undefined</span>
 <span class="pi">'use strict'</span>;
 <span class="keyword">if</span> (<span class="literal">true</span>)
   <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>{}
-</code></pre><p>###const命令</p>
-<p>const声明一个只读的常量。一旦声明，常量的值就不能改变，改变常量的值会报错。</p>
+</code></pre><h3 id="const命令">const命令</h3><p>const声明一个只读的常量。一旦声明，常量的值就不能改变，改变常量的值会报错。</p>
 <pre><code><span class="keyword">const</span> <span class="constant">PI</span> = <span class="number">3.1415</span>;
 <span class="constant">PI</span> <span class="comment">// 3.1415</span>
 <span class="constant">PI</span> = <span class="number">3</span>;
@@ -327,8 +323,7 @@ foo.prop = <span class="number">123</span>;
   });
 };
 </code></pre><p><strong>ES5只有两种声明变量的方法：var命令和function命令。</strong><br><strong>ES6一共有6种声明变量的方法: var,function,let,const,class,import。</strong></p>
-<p>###全局对象属性</p>
-<p>全局对象是最顶层的对象，在浏览器环境指的是<code>window</code>对象，在Node.js指的是<code>global</code>对象。ES5之中，全局对象的属性与全局变量是等价的。</p>
+<h3 id="全局对象属性">全局对象属性</h3><p>全局对象是最顶层的对象，在浏览器环境指的是<code>window</code>对象，在Node.js指的是<code>global</code>对象。ES5之中，全局对象的属性与全局变量是等价的。</p>
 <pre><code>window.<span class="literal">a</span> = <span class="number">1</span><span class="comment">;</span>
 <span class="literal">a</span> // <span class="number">1</span>
 <span class="literal">a</span> = <span class="number">2</span><span class="comment">;</span>
