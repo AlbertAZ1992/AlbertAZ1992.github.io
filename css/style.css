@@ -422,6 +422,19 @@ pre {
   width: 100%;
   vertical-align: bottom;
 }
+.article-content .entry a {
+  color: #fbb829;
+  padding: 0 0.5rem;
+}
+.article-content .entry a:hover {
+  color: #9cc451;
+  text-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.1);
+}
+.article-content .entry ul {
+  font-weight: 200;
+  font-size: 1.8rem;
+  line-height: 2;
+}
 .pisces-tags-cloud {
   width: 75%;
   margin: 0 auto;
