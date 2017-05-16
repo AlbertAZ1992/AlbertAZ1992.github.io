@@ -99,13 +99,40 @@ $(function(){
 
         }
     });
+    $('#listIcon').bind('touchstart',function(){
+        if($('#listIcon').hasClass('close')){
+            $('#fullpage .nav').removeClass('show');
+            $('#fullpage .nav-box').removeClass('show');
+            $('#fullpage .nav-opt').removeClass('show');
+            $('#listIcon').removeClass('close').addClass('active');
+            $('#works').css('display','block');
+            $('#about').css('display','block');
+
+        }else{
+            $('#fullpage .nav').addClass('show');
+            $('#fullpage .nav-box').addClass('show');
+            $('#fullpage .nav-opt').addClass('show');
+            $('#listIcon').addClass('close');
+            $('#works').css('display','none');
+            $('#about').css('display','none');
+
+        }
+    });
     $('#nav-opt-work').click(function(){
         $('#listIcon').trigger('click');
+        $.fn.fullpage.moveTo('page2');
+    });
+    $('#nav-opt-work').bind('touchstart',function(){
+        $('#listIcon').trigger('touchstart');
         $.fn.fullpage.moveTo('page2');
     });
     $('.frame .title-work').click(function(){
         // $('#listIcon').trigger('click');
         $.fn.fullpage.moveTo('page2');
+    });
+    $('#nav-opt-about').bind('touchstart',function(){
+        $('#listIcon').trigger('touchstart');
+        $.fn.fullpage.moveTo('page3');
     });
     $('#nav-opt-about').click(function(){
         $('#listIcon').trigger('click');
@@ -119,6 +146,23 @@ $(function(){
         $.fn.fullpage.moveTo('page1');
     })
     $('#mob-listIcon').click(function(){
+        if($('#mob-listIcon').hasClass('close')){
+            $('#mob-full .nav').removeClass('show');
+            $('#mob-full .nav-box').removeClass('show');
+            $('#mob-full .nav-opt').removeClass('show');
+            $('#mob-listIcon').removeClass('close');
+            $('.mobile-works').css('display','block');
+            $('#mob-about').css('display','block');
+        }else{
+            $('#mob-full .nav').addClass('show');
+            $('#mob-full .nav-box').addClass('show');
+            $('#mob-full .nav-opt').addClass('show');
+            $('#mob-listIcon').addClass('close');
+            $('.mobile-works').css('display','none');
+            $('#mob-about').css('display','none');
+        }
+    });
+    $('#mob-listIcon').bind('touchstart',function(){
         if($('#mob-listIcon').hasClass('close')){
             $('#mob-full .nav').removeClass('show');
             $('#mob-full .nav-box').removeClass('show');
