@@ -272,16 +272,13 @@ function isTouchDevice(){
 
 function touchScroll(id) {
     if (isTouchDevice()) {
-        var el = document.querySelector('id');
-        var el = $(id);
+        var el = document.querySelector(id);
         var scrollStartPos = 0;
-        document.querySelector('id').addEventListener("touchstart",
-            function(event) {
+        document.querySelector(id).addEventListener("touchstart",function(event) {
                 scrollStartPos = this.scrollTop + event.touches[0].pageY;
                 event.preventDefault();
             },false);
-        document.querySelector('id').addEventListener("touchmove",
-            function(event) {
+        document.querySelector(id).addEventListener("touchmove",function(event) {
                 this.scrollTop = scrollStartPos - event.touches[0].pageY;
                 event.preventDefault();
             },false);
