@@ -118,7 +118,27 @@ $(function(){
     $('#logoIcon,.frameLogoIcon').click(function(){
         $.fn.fullpage.moveTo('page1');
     })
+    $('#logoIcon,.frameLogoIcon').bind('touchstart',function(){
+        $.fn.fullpage.moveTo('page1');
+    })
     $('#mob-listIcon').click(function(){
+        if($('#mob-listIcon').hasClass('close')){
+            $('#mob-full .nav').removeClass('show');
+            $('#mob-full .nav-box').removeClass('show');
+            $('#mob-full .nav-opt').removeClass('show');
+            $('#mob-listIcon').removeClass('close');
+            $('.mobile-works').css('display','block');
+            $('#mob-about').css('display','block');
+        }else{
+            $('#mob-full .nav').addClass('show');
+            $('#mob-full .nav-box').addClass('show');
+            $('#mob-full .nav-opt').addClass('show');
+            $('#mob-listIcon').addClass('close');
+            $('.mobile-works').css('display','none');
+            $('#mob-about').css('display','none');
+        }
+    });
+    $('#mob-listIcon').bind('touchstart',function(){
         if($('#mob-listIcon').hasClass('close')){
             $('#mob-full .nav').removeClass('show');
             $('#mob-full .nav-box').removeClass('show');
@@ -140,11 +160,19 @@ $(function(){
         $.fn.fullpage.moveTo('page2');
         $('html,body').animate({scrollTop: $('#mob-slides-item-1').offset().top},500);
     });
+    $('#mob-nav-opt-work,.frame .title-work').bind('touchstart',function(){
+        $('#mob-listIcon').trigger('click');
+        $.fn.fullpage.moveTo('page2');
+        $('html,body').animate({scrollTop: $('#mob-slides-item-1').offset().top},500);
+    });
     $('#mob-nav-opt-about,.frame .title-about').click(function(){
         $('#mob-listIcon').trigger('click');
         $('html,body').animate({scrollTop: $('#mob-about').offset().top},500);
     });
-
+    $('#mob-nav-opt-about,.frame .title-about').bind('touchstart',function(){
+        $('#mob-listIcon').trigger('click');
+        $('html,body').animate({scrollTop: $('#mob-about').offset().top},500);
+    });
 
 
 
@@ -274,10 +302,10 @@ function touchScroll(id) {
     if (isTouchDevice()) {
         var el = document.querySelector(id);
         var scrollStartPos = 0;
-        // document.querySelector(id).addEventListener("touchstart",function(event) {
-        //         scrollStartPos = this.scrollTop + event.touches[0].pageY;
-        //         event.preventDefault();
-        //     },false);
+        document.querySelector(id).addEventListener("touchstart",function(event) {
+                scrollStartPos = this.scrollTop + event.touches[0].pageY;
+                event.preventDefault();
+            },false);
         document.querySelector(id).addEventListener("touchmove",function(event) {
                 this.scrollTop = scrollStartPos - event.touches[0].pageY;
                 event.preventDefault();
