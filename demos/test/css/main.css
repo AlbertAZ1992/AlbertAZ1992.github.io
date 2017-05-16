@@ -65,6 +65,12 @@
     height: 3.2vw;
 }
 
+#listIcon,
+#nav-opt-about,
+#nav-opt-work{
+    cursor: pointer;
+}
+
 
 .listIcon{
     width: 3vw;
