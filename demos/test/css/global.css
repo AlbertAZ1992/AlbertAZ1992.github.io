@@ -42,6 +42,19 @@ body{
         sans-serif;
     transition: .5s;
 }
+
+
+body::-webkit-scrollbar {
+-webkit-appearance: none;       /*可去除系统默认的样式*/
+width: 5px;                           /*滚动条宽度*/
+}
+body::-webkit-scrollbar-thumb {    /*当焦点不在当前区域滑块的状态*/
+border-radius: 4px;
+background-color: rgba(0,0,0,.5);
+-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
 html{
     font-size: 62.5%;
 }

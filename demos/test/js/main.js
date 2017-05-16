@@ -169,6 +169,34 @@ $(function(){
             var workActiveIndexText = workActiveIndex + 1;
             var detailOrder = workActiveIndexText + '/6';
             $('#works .detail .order').text(detailOrder);
+            switch(workActiveIndexText){
+                case 1:
+                    $('#works .detail .text').text('MyMeds');
+                    $('#works .detail .name').text('Platform Application');
+                    break;
+                case 2:
+                    $('#works .detail .text').text('Diabetics Sunlit-living').css('font-size','2rem');
+                    $('#works .detail .name').text('Branding / Web');
+                    break;
+                case 3:
+                    $('#works .detail .text').text('CLICKtips');
+                    $('#works .detail .name').text('UI UX');
+                    break;
+                case 4:
+                    $('#works .detail .text').text('Sushi Recipe').css('font-size','2rem');
+                    $('#works .detail .name').text('Video');
+                    break;
+                case 5:
+                    $('#works .detail .text').text('TDI Web').css('font-size','2rem');
+                    $('#works .detail .name').text('UI Design Web');
+                    break;
+                case 6:
+                    $('#works .detail .text').text('Big Fork').css('font-size','2rem');
+                    $('#works .detail .name').text('UI Design');
+                    break;
+                default:
+                    break;
+            }
             $('#works .menu-list-item-'+ workActiveIndexText).addClass('active').siblings().removeClass('active');
             // $('#about .menu-list-item-'+ workActiveIndexText).addClass('active').siblings().removeClass('active');
             // renderWorks();
