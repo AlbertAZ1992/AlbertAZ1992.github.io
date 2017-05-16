@@ -256,13 +256,29 @@ $(function(){
     //     $('.mob-item-descrip #item-'+id).addClass('show').siblings().removeClass('show');
     //     $('.mob-item-descrip').scrollTop(0);
     // });
-
-
+    touchScroll("html");
+    touchScroll("body");
 });
 
 
 
 
+function touchScroll(id) {
+    if (isTouchDevice()) {
+        var el = $(id);
+        var scrollStartPos = 0;
+        $(id).addEventListener("touchstart",
+            function(event) {
+                scrollStartPos = this.scrollTop + event.touches[0].pageY;
+                event.preventDefault();
+            },false);
+        $(id).addEventListener("touchmove",
+            function(event) {
+                this.scrollTop = scrollStartPos - event.touches[0].pageY;
+                event.preventDefault();
+            },false);
+    }
+}
 
 function renderWorks(){
     if(!$('#works .frame .title-work').hasClass('active')){
