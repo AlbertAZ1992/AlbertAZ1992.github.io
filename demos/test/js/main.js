@@ -299,6 +299,7 @@ $(function(){
     // });
     touchScroll("html");
     touchScroll("body");
+    touchScroll(".mob-item-descrip");
 });
 
 
