@@ -273,7 +273,20 @@ $(function(){
         $('.mob-item-descrip #mob-item-'+id).addClass('show').siblings().removeClass('show');
         $('.mob-item-descrip').scrollTop(0);
     });
+    $('.mob-slides').bind('touchstart',function(){
+        $('.mob-item-descrip').addClass('active');
+        $('.mob-slides').css('display','none');
+        $('#mob-about').css('display','none');
+        var id = $(this).attr('data-id');
+        $('.mob-item-descrip #mob-item-'+id).addClass('show').siblings().removeClass('show');
+        $('.mob-item-descrip').scrollTop(0);
+    });
     $('#mob-item-des-close').click(function(){
+        $('.mob-slides').css('display','block');
+        $('#mob-about').css('display','block');
+        $('.mob-item-descrip').removeClass('active');
+    });
+    $('#mob-item-des-close').bind('touchstart',function(){
         $('.mob-slides').css('display','block');
         $('#mob-about').css('display','block');
         $('.mob-item-descrip').removeClass('active');
