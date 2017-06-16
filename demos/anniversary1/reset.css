@@ -1,0 +1,50 @@
+/*
+* @Author: Albert
+* @Date:   2017-06-10 17:40:03
+* @Last Modified by:   Albert
+* @Last Modified time: 2017-06-16 22:02:57
+*/
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    transition:  all 0.3s ease-out;
+    -moz-transition:  all 0.3s ease-out;
+    -webkit-transition:  all 0.3s ease-out;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+a:hover,
+a:active,
+a:link,
+a:visited {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+
+
+
